@@ -1,0 +1,63 @@
+﻿@model IEnumerable<prjCafeteriaUnapec.factura>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.modoPago)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.montoTotal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CAFETERIA.NOMBRE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EMPLEADO.NOMBRE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.USUARIO.NOMBRE)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.fecha)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.modoPago)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.montoTotal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CAFETERIA.NOMBRE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EMPLEADO.NOMBRE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.USUARIO.NOMBRE)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idFactura }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idFactura }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idFactura })
+        </td>
+    </tr>
+}
+
+</table>

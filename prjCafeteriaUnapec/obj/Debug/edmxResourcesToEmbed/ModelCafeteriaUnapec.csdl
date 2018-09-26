@@ -1,0 +1,607 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CAFETERIAUNAPECModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="C__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ARTICULO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DESCRIPCION" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IDMARCA" Type="Int32" />
+    <Property Name="IDPROVEEDOR" Type="Int32" />
+    <Property Name="COSTO" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="EXISTENCIA" Type="Int32" Nullable="false" />
+    <Property Name="ESTADO" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="detallefactura" Relationship="Self.fk_Articulo" FromRole="ARTICULO" ToRole="detallefactura" />
+    <NavigationProperty Name="CAFETERIARTICULO" Relationship="Self.FK_ARTICULOC" FromRole="ARTICULO" ToRole="CAFETERIARTICULO" />
+    <NavigationProperty Name="FACTURACION_ARTICULOS" Relationship="Self.Fk_ArticuloF" FromRole="ARTICULO" ToRole="FACTURACION_ARTICULOS" />
+    <NavigationProperty Name="MARCA" Relationship="Self.FK_MARCA" FromRole="ARTICULO" ToRole="MARCA" />
+  </EntityType>
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+    <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+    <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+  </EntityType>
+  <EntityType Name="CAFETERIA">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NOMBRE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ENCARGADO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IDCAMPUS" Type="Int32" />
+    <Property Name="ESTADO" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="CAFETERIARTICULO" Relationship="Self.FK_CAFETERIAC1" FromRole="CAFETERIA" ToRole="CAFETERIARTICULO" />
+    <NavigationProperty Name="CAMPUS" Relationship="Self.FK_CAMPUS" FromRole="CAFETERIA" ToRole="CAMPUS" />
+    <NavigationProperty Name="factura" Relationship="Self.FK_factura_CAFETERIA" FromRole="CAFETERIA" ToRole="factura" />
+    <NavigationProperty Name="CAFETERIAEMPLEADO" Relationship="CAFETERIAUNAPECModel.FK_CAFETERIAC" FromRole="CAFETERIA" ToRole="CAFETERIAEMPLEADO" />
+  </EntityType>
+  <EntityType Name="CAFETERIARTICULO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="IDARTICULO" Type="Int32" />
+    <Property Name="IDCAFETERIA" Type="Int32" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="ARTICULO" Relationship="Self.FK_ARTICULOC" FromRole="CAFETERIARTICULO" ToRole="ARTICULO" />
+    <NavigationProperty Name="CAFETERIA" Relationship="Self.FK_CAFETERIAC1" FromRole="CAFETERIARTICULO" ToRole="CAFETERIA" />
+  </EntityType>
+  <EntityType Name="CAMPUS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NOMBRE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ESTADO" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="CAFETERIA" Relationship="Self.FK_CAMPUS" FromRole="CAMPUS" ToRole="CAFETERIA" />
+  </EntityType>
+  <EntityType Name="detallefactura">
+    <Key>
+      <PropertyRef Name="idDetalleFactura" />
+    </Key>
+    <Property Name="idDetalleFactura" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idArticulo" Type="Int32" />
+    <Property Name="idFactura" Type="Int32" />
+    <Property Name="unidades" Type="Int32" />
+    <NavigationProperty Name="ARTICULO" Relationship="Self.fk_Articulo" FromRole="detallefactura" ToRole="ARTICULO" />
+    <NavigationProperty Name="factura" Relationship="Self.fk_factura" FromRole="detallefactura" ToRole="factura" />
+  </EntityType>
+  <EntityType Name="EMPLEADO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDTANDALABOR" Type="Int32" />
+    <Property Name="NOMBRE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CEDULA" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="COMISION" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="FECHAREGISTRO" Type="DateTime" Precision="0" />
+    <Property Name="ESTADO" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="factura" Relationship="Self.fk_empleado" FromRole="EMPLEADO" ToRole="factura" />
+    <NavigationProperty Name="FACTURACION_ARTICULOS" Relationship="Self.Fk_EmpleadoF" FromRole="EMPLEADO" ToRole="FACTURACION_ARTICULOS" />
+    <NavigationProperty Name="TANDALABOR" Relationship="Self.FK_TANDALABOR" FromRole="EMPLEADO" ToRole="TANDALABOR" />
+    <NavigationProperty Name="CAFETERIAEMPLEADO" Relationship="CAFETERIAUNAPECModel.FK_EMPLEADOC" FromRole="EMPLEADO" ToRole="CAFETERIAEMPLEADO" />
+  </EntityType>
+  <EntityType Name="factura">
+    <Key>
+      <PropertyRef Name="idFactura" />
+    </Key>
+    <Property Name="idFactura" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fecha" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="modoPago" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="idUsuario" Type="Int32" />
+    <Property Name="idEmpleado" Type="Int32" />
+    <Property Name="montoTotal" Type="Decimal" Precision="16" Scale="2" />
+    <Property Name="idCafeteria" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CAFETERIA" Relationship="Self.FK_factura_CAFETERIA" FromRole="factura" ToRole="CAFETERIA" />
+    <NavigationProperty Name="detallefactura" Relationship="Self.fk_factura" FromRole="factura" ToRole="detallefactura" />
+    <NavigationProperty Name="EMPLEADO" Relationship="Self.fk_empleado" FromRole="factura" ToRole="EMPLEADO" />
+    <NavigationProperty Name="USUARIO" Relationship="Self.fk_cliente" FromRole="factura" ToRole="USUARIO" />
+  </EntityType>
+  <EntityType Name="FACTURACION_ARTICULOS">
+    <Key>
+      <PropertyRef Name="NoFactura" />
+    </Key>
+    <Property Name="NoFactura" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Unidades" Type="Int32" Nullable="false" />
+    <Property Name="IdEmpleado" Type="Int32" Nullable="false" />
+    <Property Name="IdArticulo" Type="Int32" Nullable="false" />
+    <Property Name="IdUsuario" Type="Int32" Nullable="false" />
+    <Property Name="FechaVenta" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="MontoArticulo" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Comentario" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Estado" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="ARTICULO" Relationship="Self.Fk_ArticuloF" FromRole="FACTURACION_ARTICULOS" ToRole="ARTICULO" />
+    <NavigationProperty Name="EMPLEADO" Relationship="Self.Fk_EmpleadoF" FromRole="FACTURACION_ARTICULOS" ToRole="EMPLEADO" />
+    <NavigationProperty Name="USUARIO" Relationship="Self.Fk_UsuarioF" FromRole="FACTURACION_ARTICULOS" ToRole="USUARIO" />
+  </EntityType>
+  <EntityType Name="FACTURACIONARTICULO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDEMPLEADO" Type="Int32" />
+    <Property Name="IDARTICULO" Type="Int32" />
+    <Property Name="IDUSUARIO" Type="Int32" />
+    <Property Name="FECHAREGISTRO" Type="DateTime" Precision="7" />
+    <Property Name="MONTO" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="UNIDADVENDIDA" Type="Int32" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ESTADO" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="MARCA">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NOMBRE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ESTADO" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="ARTICULO" Relationship="Self.FK_MARCA" FromRole="MARCA" ToRole="ARTICULO" />
+  </EntityType>
+  <EntityType Name="PROVEEDOR">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NOMBRE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RNC" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FECHAREGISTRO" Type="DateTime" Precision="0" />
+    <Property Name="ESTADO" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TANDALABOR">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TANDA" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="EMPLEADO" Relationship="Self.FK_TANDALABOR" FromRole="TANDALABOR" ToRole="EMPLEADO" />
+  </EntityType>
+  <EntityType Name="TIPOUSUARIO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DESCRIPCION" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ESTADO" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="USUARIO" Relationship="Self.FK_TIPOUSUARIO" FromRole="TIPOUSUARIO" ToRole="USUARIO" />
+  </EntityType>
+  <EntityType Name="USUARIO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NOMBRE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CEDULA" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IDTIPOUSUARIO" Type="Int32" />
+    <Property Name="LIMITECREDITO" Type="Decimal" Precision="9" Scale="2" />
+    <Property Name="FECHAREGISTRO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ESTADO" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="factura" Relationship="Self.fk_cliente" FromRole="USUARIO" ToRole="factura" />
+    <NavigationProperty Name="FACTURACION_ARTICULOS" Relationship="Self.Fk_UsuarioF" FromRole="USUARIO" ToRole="FACTURACION_ARTICULOS" />
+    <NavigationProperty Name="TIPOUSUARIO" Relationship="Self.FK_TIPOUSUARIO" FromRole="USUARIO" ToRole="TIPOUSUARIO" />
+  </EntityType>
+  <EntityType Name="DetalleFactura_View">
+    <Key>
+      <PropertyRef Name="IDFACTURA" />
+      <PropertyRef Name="DESCRIPCION" />
+      <PropertyRef Name="COSTO" />
+    </Key>
+    <Property Name="UNIDADES" Type="Int32" />
+    <Property Name="IDFACTURA" Type="Int32" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="COSTO" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MontoTotal">
+    <Key>
+      <PropertyRef Name="idfactura" />
+    </Key>
+    <Property Name="idfactura" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MONTOTOTAL1" Type="Decimal" Precision="16" Scale="2" />
+  </EntityType>
+  <Association Name="fk_Articulo">
+    <End Role="ARTICULO" Type="Self.ARTICULO" Multiplicity="0..1" />
+    <End Role="detallefactura" Type="Self.detallefactura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ARTICULO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="detallefactura">
+        <PropertyRef Name="idArticulo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ARTICULOC">
+    <End Role="ARTICULO" Type="Self.ARTICULO" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CAFETERIARTICULO" Type="Self.CAFETERIARTICULO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ARTICULO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CAFETERIARTICULO">
+        <PropertyRef Name="IDARTICULO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_ArticuloF">
+    <End Role="ARTICULO" Type="Self.ARTICULO" Multiplicity="1" />
+    <End Role="FACTURACION_ARTICULOS" Type="Self.FACTURACION_ARTICULOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ARTICULO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FACTURACION_ARTICULOS">
+        <PropertyRef Name="IdArticulo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MARCA">
+    <End Role="MARCA" Type="Self.MARCA" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ARTICULO" Type="Self.ARTICULO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MARCA">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ARTICULO">
+        <PropertyRef Name="IDMARCA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CAFETERIAC1">
+    <End Role="CAFETERIA" Type="Self.CAFETERIA" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CAFETERIARTICULO" Type="Self.CAFETERIARTICULO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CAFETERIA">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CAFETERIARTICULO">
+        <PropertyRef Name="IDCAFETERIA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CAMPUS">
+    <End Role="CAMPUS" Type="Self.CAMPUS" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CAFETERIA" Type="Self.CAFETERIA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CAMPUS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CAFETERIA">
+        <PropertyRef Name="IDCAMPUS" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_factura_CAFETERIA">
+    <End Role="CAFETERIA" Type="Self.CAFETERIA" Multiplicity="1" />
+    <End Role="factura" Type="Self.factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CAFETERIA">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="factura">
+        <PropertyRef Name="idCafeteria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_factura">
+    <End Role="factura" Type="Self.factura" Multiplicity="0..1" />
+    <End Role="detallefactura" Type="Self.detallefactura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="factura">
+        <PropertyRef Name="idFactura" />
+      </Principal>
+      <Dependent Role="detallefactura">
+        <PropertyRef Name="idFactura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_empleado">
+    <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="0..1" />
+    <End Role="factura" Type="Self.factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPLEADO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="factura">
+        <PropertyRef Name="idEmpleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_EmpleadoF">
+    <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="1" />
+    <End Role="FACTURACION_ARTICULOS" Type="Self.FACTURACION_ARTICULOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPLEADO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FACTURACION_ARTICULOS">
+        <PropertyRef Name="IdEmpleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TANDALABOR">
+    <End Role="TANDALABOR" Type="Self.TANDALABOR" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TANDALABOR">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="EMPLEADO">
+        <PropertyRef Name="IDTANDALABOR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_cliente">
+    <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="0..1" />
+    <End Role="factura" Type="Self.factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="factura">
+        <PropertyRef Name="idUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Fk_UsuarioF">
+    <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+    <End Role="FACTURACION_ARTICULOS" Type="Self.FACTURACION_ARTICULOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FACTURACION_ARTICULOS">
+        <PropertyRef Name="IdUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TIPOUSUARIO">
+    <End Role="TIPOUSUARIO" Type="Self.TIPOUSUARIO" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TIPOUSUARIO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="USUARIO">
+        <PropertyRef Name="IDTIPOUSUARIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AspNetUserRoles">
+    <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="*" />
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="CAFETERIAUNAPECEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+    <EntitySet Name="ARTICULO" EntityType="Self.ARTICULO" />
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" />
+    <EntitySet Name="CAFETERIA" EntityType="Self.CAFETERIA" />
+    <EntitySet Name="CAFETERIARTICULO" EntityType="Self.CAFETERIARTICULO" />
+    <EntitySet Name="CAMPUS" EntityType="Self.CAMPUS" />
+    <EntitySet Name="detallefactura" EntityType="Self.detallefactura" />
+    <EntitySet Name="EMPLEADO" EntityType="Self.EMPLEADO" />
+    <EntitySet Name="factura" EntityType="Self.factura" />
+    <EntitySet Name="FACTURACION_ARTICULOS" EntityType="Self.FACTURACION_ARTICULOS" />
+    <EntitySet Name="FACTURACIONARTICULO" EntityType="Self.FACTURACIONARTICULO" />
+    <EntitySet Name="MARCA" EntityType="Self.MARCA" />
+    <EntitySet Name="PROVEEDOR" EntityType="Self.PROVEEDOR" />
+    <EntitySet Name="TANDALABOR" EntityType="Self.TANDALABOR" />
+    <EntitySet Name="TIPOUSUARIO" EntityType="Self.TIPOUSUARIO" />
+    <EntitySet Name="USUARIO" EntityType="Self.USUARIO" />
+    <EntitySet Name="DetalleFactura_View" EntityType="Self.DetalleFactura_View" />
+    <EntitySet Name="MontoTotal" EntityType="Self.MontoTotal" />
+    <AssociationSet Name="fk_Articulo" Association="Self.fk_Articulo">
+      <End Role="ARTICULO" EntitySet="ARTICULO" />
+      <End Role="detallefactura" EntitySet="detallefactura" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ARTICULOC" Association="Self.FK_ARTICULOC">
+      <End Role="ARTICULO" EntitySet="ARTICULO" />
+      <End Role="CAFETERIARTICULO" EntitySet="CAFETERIARTICULO" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_ArticuloF" Association="Self.Fk_ArticuloF">
+      <End Role="ARTICULO" EntitySet="ARTICULO" />
+      <End Role="FACTURACION_ARTICULOS" EntitySet="FACTURACION_ARTICULOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MARCA" Association="Self.FK_MARCA">
+      <End Role="MARCA" EntitySet="MARCA" />
+      <End Role="ARTICULO" EntitySet="ARTICULO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CAFETERIAC1" Association="Self.FK_CAFETERIAC1">
+      <End Role="CAFETERIA" EntitySet="CAFETERIA" />
+      <End Role="CAFETERIARTICULO" EntitySet="CAFETERIARTICULO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CAMPUS" Association="Self.FK_CAMPUS">
+      <End Role="CAMPUS" EntitySet="CAMPUS" />
+      <End Role="CAFETERIA" EntitySet="CAFETERIA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_factura_CAFETERIA" Association="Self.FK_factura_CAFETERIA">
+      <End Role="CAFETERIA" EntitySet="CAFETERIA" />
+      <End Role="factura" EntitySet="factura" />
+    </AssociationSet>
+    <AssociationSet Name="fk_factura" Association="Self.fk_factura">
+      <End Role="factura" EntitySet="factura" />
+      <End Role="detallefactura" EntitySet="detallefactura" />
+    </AssociationSet>
+    <AssociationSet Name="fk_empleado" Association="Self.fk_empleado">
+      <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+      <End Role="factura" EntitySet="factura" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_EmpleadoF" Association="Self.Fk_EmpleadoF">
+      <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+      <End Role="FACTURACION_ARTICULOS" EntitySet="FACTURACION_ARTICULOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TANDALABOR" Association="Self.FK_TANDALABOR">
+      <End Role="TANDALABOR" EntitySet="TANDALABOR" />
+      <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+    </AssociationSet>
+    <AssociationSet Name="fk_cliente" Association="Self.fk_cliente">
+      <End Role="USUARIO" EntitySet="USUARIO" />
+      <End Role="factura" EntitySet="factura" />
+    </AssociationSet>
+    <AssociationSet Name="Fk_UsuarioF" Association="Self.Fk_UsuarioF">
+      <End Role="USUARIO" EntitySet="USUARIO" />
+      <End Role="FACTURACION_ARTICULOS" EntitySet="FACTURACION_ARTICULOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TIPOUSUARIO" Association="Self.FK_TIPOUSUARIO">
+      <End Role="TIPOUSUARIO" EntitySet="TIPOUSUARIO" />
+      <End Role="USUARIO" EntitySet="USUARIO" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+    </AssociationSet>
+    <EntitySet Name="CAFETERIAEMPLEADO" EntityType="CAFETERIAUNAPECModel.CAFETERIAEMPLEADO" />
+    <AssociationSet Name="FK_CAFETERIAC" Association="CAFETERIAUNAPECModel.FK_CAFETERIAC">
+      <End Role="CAFETERIA" EntitySet="CAFETERIA" />
+      <End Role="CAFETERIAEMPLEADO" EntitySet="CAFETERIAEMPLEADO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EMPLEADOC" Association="CAFETERIAUNAPECModel.FK_EMPLEADOC">
+      <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+      <End Role="CAFETERIAEMPLEADO" EntitySet="CAFETERIAEMPLEADO" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="CAFETERIAEMPLEADO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="IDEMPLEADO" Type="Int32" />
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="IDCAFETERIA" Type="Int32" />
+    <NavigationProperty Name="CAFETERIA" Relationship="CAFETERIAUNAPECModel.FK_CAFETERIAC" FromRole="CAFETERIAEMPLEADO" ToRole="CAFETERIA" />
+    <NavigationProperty Name="EMPLEADO" Relationship="CAFETERIAUNAPECModel.FK_EMPLEADOC" FromRole="CAFETERIAEMPLEADO" ToRole="EMPLEADO" />
+  </EntityType>
+  <Association Name="FK_CAFETERIAC">
+    <End Type="CAFETERIAUNAPECModel.CAFETERIA" Role="CAFETERIA" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="CAFETERIAUNAPECModel.CAFETERIAEMPLEADO" Role="CAFETERIAEMPLEADO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CAFETERIA">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CAFETERIAEMPLEADO">
+        <PropertyRef Name="IDCAFETERIA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EMPLEADOC">
+    <End Type="CAFETERIAUNAPECModel.EMPLEADO" Role="EMPLEADO" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="CAFETERIAUNAPECModel.CAFETERIAEMPLEADO" Role="CAFETERIAEMPLEADO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPLEADO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CAFETERIAEMPLEADO">
+        <PropertyRef Name="IDEMPLEADO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

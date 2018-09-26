@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0aa4659148b3417ab8fb29b353303531" Name="Diagram1" ZoomLevel="55">
+        <EntityTypeShape EntityType="CAFETERIAUNAPECModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAFETERIAUNAPECModel.ARTICULO" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAFETERIAUNAPECModel.AspNetRoles" Width="1.5" PointX="10.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAFETERIAUNAPECModel.AspNetUserClaims" Width="1.5" PointX="15.25" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAFETERIAUNAPECModel.AspNetUserLogins" Width="1.5" PointX="15.25" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAFETERIAUNAPECModel.AspNetUsers" Width="1.5" PointX="13" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAFETERIAUNAPECModel.CAFETERIA" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAFETERIAUNAPECModel.CAFETERIARTICULO" Width="1.5" PointX="5.25" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAFETERIAUNAPECModel.CAMPUS" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAFETERIAUNAPECModel.detallefactura" Width="1.5" PointX="10.5" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAFETERIAUNAPECModel.EMPLEADO" Width="1.5" PointX="6" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAFETERIAUNAPECModel.factura" Width="1.5" PointX="8.25" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAFETERIAUNAPECModel.FACTURACION_ARTICULOS" Width="1.5" PointX="8.25" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAFETERIAUNAPECModel.FACTURACIONARTICULO" Width="1.5" PointX="0.75" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAFETERIAUNAPECModel.MARCA" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAFETERIAUNAPECModel.PROVEEDOR" Width="1.5" PointX="8.75" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAFETERIAUNAPECModel.TANDALABOR" Width="1.5" PointX="3.75" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAFETERIAUNAPECModel.TIPOUSUARIO" Width="1.5" PointX="3.75" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAFETERIAUNAPECModel.USUARIO" Width="1.5" PointX="6" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAFETERIAUNAPECModel.DetalleFactura_View" Width="1.5" PointX="12.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAFETERIAUNAPECModel.MontoTotal" Width="1.5" PointX="12.75" PointY="6" IsExpanded="true" />
+        <AssociationConnector Association="CAFETERIAUNAPECModel.fk_Articulo" ManuallyRouted="false" />
+        <AssociationConnector Association="CAFETERIAUNAPECModel.FK_ARTICULOC" ManuallyRouted="false" />
+        <AssociationConnector Association="CAFETERIAUNAPECModel.Fk_ArticuloF" ManuallyRouted="false" />
+        <AssociationConnector Association="CAFETERIAUNAPECModel.FK_MARCA" ManuallyRouted="false" />
+        <AssociationConnector Association="CAFETERIAUNAPECModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="CAFETERIAUNAPECModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="CAFETERIAUNAPECModel.FK_CAFETERIAC1" ManuallyRouted="false" />
+        <AssociationConnector Association="CAFETERIAUNAPECModel.FK_CAMPUS" ManuallyRouted="false" />
+        <AssociationConnector Association="CAFETERIAUNAPECModel.FK_factura_CAFETERIA" ManuallyRouted="false" />
+        <AssociationConnector Association="CAFETERIAUNAPECModel.fk_factura" ManuallyRouted="false" />
+        <AssociationConnector Association="CAFETERIAUNAPECModel.fk_empleado" ManuallyRouted="false" />
+        <AssociationConnector Association="CAFETERIAUNAPECModel.Fk_EmpleadoF" ManuallyRouted="false" />
+        <AssociationConnector Association="CAFETERIAUNAPECModel.FK_TANDALABOR" ManuallyRouted="false" />
+        <AssociationConnector Association="CAFETERIAUNAPECModel.fk_cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="CAFETERIAUNAPECModel.Fk_UsuarioF" ManuallyRouted="false" />
+        <AssociationConnector Association="CAFETERIAUNAPECModel.FK_TIPOUSUARIO" ManuallyRouted="false" />
+        <AssociationConnector Association="CAFETERIAUNAPECModel.AspNetUserRoles" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="CAFETERIAUNAPECModel.CAFETERIAEMPLEADO" Width="1.5" PointX="8.25" PointY="1.125" />
+        <AssociationConnector Association="CAFETERIAUNAPECModel.FK_CAFETERIAC" />
+        <AssociationConnector Association="CAFETERIAUNAPECModel.FK_EMPLEADOC" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
