@@ -1,0 +1,67 @@
+﻿@model prj_cafeteria.Models.Factura
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Factura</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.modoPago)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.modoPago)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.montoTotal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.montoTotal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CAFETERIA.NOMBRE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CAFETERIA.NOMBRE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EMPLEADO.NOMBRE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EMPLEADO.NOMBRE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.USUARIO.NOMBRE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.USUARIO.NOMBRE)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

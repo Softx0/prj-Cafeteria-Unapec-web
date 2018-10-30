@@ -1,0 +1,43 @@
+﻿@model prj_cafeteria.Models.DetalleFactura
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DetalleFactura</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.unidades)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.unidades)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Articulos.DESCRIPCION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Articulos.DESCRIPCION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Factura.fecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Factura.fecha)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idDetalleFactura }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

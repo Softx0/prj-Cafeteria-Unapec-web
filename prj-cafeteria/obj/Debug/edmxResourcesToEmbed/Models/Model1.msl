@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CafeteriaUnapecModelStoreContainer" CdmEntityContainer="CafeteriaUnapecEntities">
+    <EntitySetMapping Name="PROVEEDOR">
+      <EntityTypeMapping TypeName="CafeteriaUnapecModel.PROVEEDOR">
+        <MappingFragment StoreEntitySet="PROVEEDOR">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="RNC" ColumnName="RNC" />
+          <ScalarProperty Name="FECHAREGISTRO" ColumnName="FECHAREGISTRO" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

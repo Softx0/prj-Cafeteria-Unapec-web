@@ -1,0 +1,73 @@
+﻿@model prj_cafeteria.Models.Articulos
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Articulos</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DESCRIPCION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DESCRIPCION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.COSTO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.COSTO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EXISTENCIA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EXISTENCIA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MARCA.NOMBRE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MARCA.NOMBRE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PROVEEDOR.NOMBRE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PROVEEDOR.NOMBRE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ESTADO1.Estado1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ESTADO1.Estado1)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

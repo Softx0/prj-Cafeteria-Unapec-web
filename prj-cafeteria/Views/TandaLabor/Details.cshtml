@@ -1,0 +1,35 @@
+﻿@model prj_cafeteria.Models.TANDALABOR
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TANDALABOR</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TANDA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TANDA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ESTADO1.Estado1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ESTADO1.Estado1)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

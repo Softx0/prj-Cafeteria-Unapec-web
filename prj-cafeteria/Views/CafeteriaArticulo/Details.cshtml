@@ -1,0 +1,35 @@
+﻿@model prj_cafeteria.Models.CAFETERIARTICULO
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CAFETERIARTICULO</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Articulos.DESCRIPCION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Articulos.DESCRIPCION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CAFETERIA.NOMBRE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CAFETERIA.NOMBRE)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

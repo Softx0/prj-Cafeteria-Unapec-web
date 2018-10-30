@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CafeteriaUnapecModelStoreContainer" CdmEntityContainer="CafeteriaUnapecEntities">
+    <EntitySetMapping Name="Articulos">
+      <EntityTypeMapping TypeName="CafeteriaUnapecModel.Articulos">
+        <MappingFragment StoreEntitySet="Articulos">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="IDMARCA" ColumnName="IDMARCA" />
+          <ScalarProperty Name="IDPROVEEDOR" ColumnName="IDPROVEEDOR" />
+          <ScalarProperty Name="COSTO" ColumnName="COSTO" />
+          <ScalarProperty Name="EXISTENCIA" ColumnName="EXISTENCIA" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CAFETERIA">
+      <EntityTypeMapping TypeName="CafeteriaUnapecModel.CAFETERIA">
+        <MappingFragment StoreEntitySet="CAFETERIA">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="ENCARGADO" ColumnName="ENCARGADO" />
+          <ScalarProperty Name="IDCAMPUS" ColumnName="IDCAMPUS" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CAFETERIAEMPLEADO">
+      <EntityTypeMapping TypeName="CafeteriaUnapecModel.CAFETERIAEMPLEADO">
+        <MappingFragment StoreEntitySet="CAFETERIAEMPLEADO">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="IDEMPLEADO" ColumnName="IDEMPLEADO" />
+          <ScalarProperty Name="IDCAFETERIA" ColumnName="IDCAFETERIA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CAFETERIARTICULO">
+      <EntityTypeMapping TypeName="CafeteriaUnapecModel.CAFETERIARTICULO">
+        <MappingFragment StoreEntitySet="CAFETERIARTICULO">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="IDARTICULO" ColumnName="IDARTICULO" />
+          <ScalarProperty Name="IDCAFETERIA" ColumnName="IDCAFETERIA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CAMPUS">
+      <EntityTypeMapping TypeName="CafeteriaUnapecModel.CAMPUS">
+        <MappingFragment StoreEntitySet="CAMPUS">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DetalleFactura">
+      <EntityTypeMapping TypeName="CafeteriaUnapecModel.DetalleFactura">
+        <MappingFragment StoreEntitySet="DetalleFactura">
+          <ScalarProperty Name="idDetalleFactura" ColumnName="idDetalleFactura" />
+          <ScalarProperty Name="idArticulo" ColumnName="idArticulo" />
+          <ScalarProperty Name="idFactura" ColumnName="idFactura" />
+          <ScalarProperty Name="unidades" ColumnName="unidades" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EMPLEADO">
+      <EntityTypeMapping TypeName="CafeteriaUnapecModel.EMPLEADO">
+        <MappingFragment StoreEntitySet="EMPLEADO">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="IDTANDALABOR" ColumnName="IDTANDALABOR" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="CEDULA" ColumnName="CEDULA" />
+          <ScalarProperty Name="COMISION" ColumnName="COMISION" />
+          <ScalarProperty Name="FECHAREGISTRO" ColumnName="FECHAREGISTRO" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Factura">
+      <EntityTypeMapping TypeName="CafeteriaUnapecModel.Factura">
+        <MappingFragment StoreEntitySet="Factura">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="modoPago" ColumnName="modoPago" />
+          <ScalarProperty Name="montoTotal" ColumnName="montoTotal" />
+          <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+          <ScalarProperty Name="idEmpleado" ColumnName="idEmpleado" />
+          <ScalarProperty Name="idCafeteria" ColumnName="idCafeteria" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FACTURACION_ARTICULOS">
+      <EntityTypeMapping TypeName="CafeteriaUnapecModel.FACTURACION_ARTICULOS">
+        <MappingFragment StoreEntitySet="FACTURACION_ARTICULOS">
+          <ScalarProperty Name="NoFactura" ColumnName="NoFactura" />
+          <ScalarProperty Name="Unidades" ColumnName="Unidades" />
+          <ScalarProperty Name="IdEmpleado" ColumnName="IdEmpleado" />
+          <ScalarProperty Name="IdArticulo" ColumnName="IdArticulo" />
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+          <ScalarProperty Name="FechaVenta" ColumnName="FechaVenta" />
+          <ScalarProperty Name="MontoArticulo" ColumnName="MontoArticulo" />
+          <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MARCA">
+      <EntityTypeMapping TypeName="CafeteriaUnapecModel.MARCA">
+        <MappingFragment StoreEntitySet="MARCA">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PROVEEDOR">
+      <EntityTypeMapping TypeName="CafeteriaUnapecModel.PROVEEDOR">
+        <MappingFragment StoreEntitySet="PROVEEDOR">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="RNC" ColumnName="RNC" />
+          <ScalarProperty Name="FECHAREGISTRO" ColumnName="FECHAREGISTRO" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TIPOUSUARIO">
+      <EntityTypeMapping TypeName="CafeteriaUnapecModel.TIPOUSUARIO">
+        <MappingFragment StoreEntitySet="TIPOUSUARIO">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USUARIO">
+      <EntityTypeMapping TypeName="CafeteriaUnapecModel.USUARIO">
+        <MappingFragment StoreEntitySet="USUARIO">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="CEDULA" ColumnName="CEDULA" />
+          <ScalarProperty Name="IDTIPOUSUARIO" ColumnName="IDTIPOUSUARIO" />
+          <ScalarProperty Name="LIMITECREDITO" ColumnName="LIMITECREDITO" />
+          <ScalarProperty Name="FECHAREGISTRO" ColumnName="FECHAREGISTRO" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TANDALABOR">
+      <EntityTypeMapping TypeName="CafeteriaUnapecModel.TANDALABOR">
+        <MappingFragment StoreEntitySet="TANDALABOR">
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="TANDA" ColumnName="TANDA" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ESTADO">
+      <EntityTypeMapping TypeName="CafeteriaUnapecModel.ESTADO">
+        <MappingFragment StoreEntitySet="ESTADO">
+          <ScalarProperty Name="Estado1" ColumnName="Estado" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="CafeteriaUnapecModel.AspNetRoles">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="CafeteriaUnapecModel.AspNetUsers">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles" TypeName="CafeteriaUnapecModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+      <EndProperty Name="AspNetUsers">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+      <EndProperty Name="AspNetRoles">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

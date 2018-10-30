@@ -1,0 +1,656 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CafeteriaUnapecModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Articulos">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="IDMARCA" Type="int" />
+    <Property Name="IDPROVEEDOR" Type="int" />
+    <Property Name="COSTO" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="EXISTENCIA" Type="int" Nullable="false" />
+    <Property Name="Estado" Type="int" />
+  </EntityType>
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserRoles">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+    <Property Name="PasswordHash" Type="nvarchar(max)" />
+    <Property Name="SecurityStamp" Type="nvarchar(max)" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" />
+    <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="datetime" />
+    <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CAFETERIA">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NOMBRE" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ENCARGADO" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="IDCAMPUS" Type="int" />
+    <Property Name="Estado" Type="int" />
+  </EntityType>
+  <EntityType Name="CAFETERIAEMPLEADO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDEMPLEADO" Type="int" />
+    <Property Name="IDCAFETERIA" Type="int" />
+  </EntityType>
+  <EntityType Name="CAFETERIARTICULO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDARTICULO" Type="int" />
+    <Property Name="IDCAFETERIA" Type="int" />
+  </EntityType>
+  <EntityType Name="CAMPUS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NOMBRE" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Estado" Type="int" />
+  </EntityType>
+  <EntityType Name="DetalleFactura">
+    <Key>
+      <PropertyRef Name="idDetalleFactura" />
+    </Key>
+    <Property Name="idDetalleFactura" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idArticulo" Type="int" />
+    <Property Name="idFactura" Type="int" />
+    <Property Name="unidades" Type="int" />
+  </EntityType>
+  <EntityType Name="EMPLEADO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDTANDALABOR" Type="int" />
+    <Property Name="NOMBRE" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="CEDULA" Type="nvarchar" MaxLength="11" Nullable="false" />
+    <Property Name="COMISION" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="FECHAREGISTRO" Type="date" />
+    <Property Name="Estado" Type="int" />
+  </EntityType>
+  <EntityType Name="ESTADO">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Estado" Type="varchar" MaxLength="8" />
+  </EntityType>
+  <EntityType Name="Factura">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fecha" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="modoPago" Type="varchar" MaxLength="30" />
+    <Property Name="montoTotal" Type="decimal" Precision="16" Scale="2" />
+    <Property Name="idUsuario" Type="int" />
+    <Property Name="idEmpleado" Type="int" />
+    <Property Name="idCafeteria" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FACTURACION_ARTICULOS">
+    <Key>
+      <PropertyRef Name="NoFactura" />
+    </Key>
+    <Property Name="NoFactura" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Unidades" Type="int" Nullable="false" />
+    <Property Name="IdEmpleado" Type="int" Nullable="false" />
+    <Property Name="IdArticulo" Type="int" Nullable="false" />
+    <Property Name="IdUsuario" Type="int" Nullable="false" />
+    <Property Name="FechaVenta" Type="date" Nullable="false" />
+    <Property Name="MontoArticulo" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Comentario" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Estado" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MARCA">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NOMBRE" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Estado" Type="int" />
+  </EntityType>
+  <EntityType Name="PROVEEDOR">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NOMBRE" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="RNC" Type="varchar" MaxLength="50" />
+    <Property Name="FECHAREGISTRO" Type="date" />
+    <Property Name="Estado" Type="int" />
+  </EntityType>
+  <EntityType Name="TANDALABOR">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TANDA" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Estado" Type="int" />
+  </EntityType>
+  <EntityType Name="TIPOUSUARIO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Estado" Type="int" />
+  </EntityType>
+  <EntityType Name="USUARIO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NOMBRE" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="CEDULA" Type="nvarchar" MaxLength="11" Nullable="false" />
+    <Property Name="IDTIPOUSUARIO" Type="int" />
+    <Property Name="LIMITECREDITO" Type="numeric" Precision="9" Scale="2" />
+    <Property Name="FECHAREGISTRO" Type="date" />
+    <Property Name="Estado" Type="int" />
+  </EntityType>
+  <Association Name="FK__Articulos__Estad__5CD6CB2B">
+    <End Role="ESTADO" Type="Self.ESTADO" Multiplicity="0..1" />
+    <End Role="Articulos" Type="Self.Articulos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESTADO">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Articulos">
+        <PropertyRef Name="Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CAFETERIA__Estad__5DCAEF64">
+    <End Role="ESTADO" Type="Self.ESTADO" Multiplicity="0..1" />
+    <End Role="CAFETERIA" Type="Self.CAFETERIA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESTADO">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CAFETERIA">
+        <PropertyRef Name="Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CAMPUS__Estado__5EBF139D">
+    <End Role="ESTADO" Type="Self.ESTADO" Multiplicity="0..1" />
+    <End Role="CAMPUS" Type="Self.CAMPUS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESTADO">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CAMPUS">
+        <PropertyRef Name="Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EMPLEADO__Estado__5FB337D6">
+    <End Role="ESTADO" Type="Self.ESTADO" Multiplicity="0..1" />
+    <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESTADO">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EMPLEADO">
+        <PropertyRef Name="Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MARCA__Estado__60A75C0F">
+    <End Role="ESTADO" Type="Self.ESTADO" Multiplicity="0..1" />
+    <End Role="MARCA" Type="Self.MARCA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESTADO">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MARCA">
+        <PropertyRef Name="Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PROVEEDOR__Estad__6477ECF3">
+    <End Role="ESTADO" Type="Self.ESTADO" Multiplicity="0..1" />
+    <End Role="PROVEEDOR" Type="Self.PROVEEDOR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESTADO">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PROVEEDOR">
+        <PropertyRef Name="Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TANDALABO__Estad__656C112C">
+    <End Role="ESTADO" Type="Self.ESTADO" Multiplicity="0..1" />
+    <End Role="TANDALABOR" Type="Self.TANDALABOR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESTADO">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TANDALABOR">
+        <PropertyRef Name="Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TIPOUSUAR__Estad__6383C8BA">
+    <End Role="ESTADO" Type="Self.ESTADO" Multiplicity="0..1" />
+    <End Role="TIPOUSUARIO" Type="Self.TIPOUSUARIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESTADO">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TIPOUSUARIO">
+        <PropertyRef Name="Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__USUARIO__Estado__628FA481">
+    <End Role="ESTADO" Type="Self.ESTADO" Multiplicity="0..1" />
+    <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESTADO">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="USUARIO">
+        <PropertyRef Name="Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Articulo_Marca">
+    <End Role="MARCA" Type="Self.MARCA" Multiplicity="0..1" />
+    <End Role="Articulos" Type="Self.Articulos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MARCA">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Articulos">
+        <PropertyRef Name="IDMARCA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Articulo_Proveedor">
+    <End Role="PROVEEDOR" Type="Self.PROVEEDOR" Multiplicity="0..1" />
+    <End Role="Articulos" Type="Self.Articulos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROVEEDOR">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Articulos">
+        <PropertyRef Name="IDPROVEEDOR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_cafeteria_articulo1">
+    <End Role="Articulos" Type="Self.Articulos" Multiplicity="0..1" />
+    <End Role="CAFETERIARTICULO" Type="Self.CAFETERIARTICULO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Articulos">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CAFETERIARTICULO">
+        <PropertyRef Name="IDARTICULO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_cafeteria_articulo2">
+    <End Role="CAFETERIA" Type="Self.CAFETERIA" Multiplicity="0..1" />
+    <End Role="CAFETERIARTICULO" Type="Self.CAFETERIARTICULO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CAFETERIA">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CAFETERIARTICULO">
+        <PropertyRef Name="IDCAFETERIA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_cafeteria_empleado1">
+    <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="0..1" />
+    <End Role="CAFETERIAEMPLEADO" Type="Self.CAFETERIAEMPLEADO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPLEADO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CAFETERIAEMPLEADO">
+        <PropertyRef Name="IDEMPLEADO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_cafeteria_empleado2">
+    <End Role="CAFETERIA" Type="Self.CAFETERIA" Multiplicity="0..1" />
+    <End Role="CAFETERIAEMPLEADO" Type="Self.CAFETERIAEMPLEADO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CAFETERIA">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CAFETERIAEMPLEADO">
+        <PropertyRef Name="IDCAFETERIA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Campus">
+    <End Role="CAMPUS" Type="Self.CAMPUS" Multiplicity="0..1" />
+    <End Role="CAFETERIA" Type="Self.CAFETERIA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CAMPUS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CAFETERIA">
+        <PropertyRef Name="IDCAMPUS" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+    <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetRoles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_detalle_articulo">
+    <End Role="Articulos" Type="Self.Articulos" Multiplicity="0..1" />
+    <End Role="DetalleFactura" Type="Self.DetalleFactura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Articulos">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DetalleFactura">
+        <PropertyRef Name="idArticulo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_detalle_factura">
+    <End Role="Factura" Type="Self.Factura" Multiplicity="0..1" />
+    <End Role="DetalleFactura" Type="Self.DetalleFactura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Factura">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DetalleFactura">
+        <PropertyRef Name="idFactura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_facturacion_articulo">
+    <End Role="Articulos" Type="Self.Articulos" Multiplicity="1" />
+    <End Role="FACTURACION_ARTICULOS" Type="Self.FACTURACION_ARTICULOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Articulos">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FACTURACION_ARTICULOS">
+        <PropertyRef Name="IdArticulo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_facturacion_empleado">
+    <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="1" />
+    <End Role="FACTURACION_ARTICULOS" Type="Self.FACTURACION_ARTICULOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPLEADO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FACTURACION_ARTICULOS">
+        <PropertyRef Name="IdEmpleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_facturacion_usuario">
+    <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+    <End Role="FACTURACION_ARTICULOS" Type="Self.FACTURACION_ARTICULOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FACTURACION_ARTICULOS">
+        <PropertyRef Name="IdUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TandaLabor">
+    <End Role="TANDALABOR" Type="Self.TANDALABOR" Multiplicity="0..1" />
+    <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TANDALABOR">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="EMPLEADO">
+        <PropertyRef Name="IDTANDALABOR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tipo_Usuario">
+    <End Role="TIPOUSUARIO" Type="Self.TIPOUSUARIO" Multiplicity="0..1" />
+    <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TIPOUSUARIO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="USUARIO">
+        <PropertyRef Name="IDTIPOUSUARIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuario_Cafeteria">
+    <End Role="CAFETERIA" Type="Self.CAFETERIA" Multiplicity="1" />
+    <End Role="Factura" Type="Self.Factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CAFETERIA">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Factura">
+        <PropertyRef Name="idCafeteria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuario_Empleado">
+    <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="0..1" />
+    <End Role="Factura" Type="Self.Factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPLEADO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Factura">
+        <PropertyRef Name="idEmpleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuario_Factura">
+    <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="0..1" />
+    <End Role="Factura" Type="Self.Factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Factura">
+        <PropertyRef Name="idUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CafeteriaUnapecModelStoreContainer">
+    <EntitySet Name="Articulos" EntityType="Self.Articulos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CAFETERIA" EntityType="Self.CAFETERIA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CAFETERIAEMPLEADO" EntityType="Self.CAFETERIAEMPLEADO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CAFETERIARTICULO" EntityType="Self.CAFETERIARTICULO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CAMPUS" EntityType="Self.CAMPUS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DetalleFactura" EntityType="Self.DetalleFactura" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EMPLEADO" EntityType="Self.EMPLEADO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ESTADO" EntityType="Self.ESTADO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Factura" EntityType="Self.Factura" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FACTURACION_ARTICULOS" EntityType="Self.FACTURACION_ARTICULOS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MARCA" EntityType="Self.MARCA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PROVEEDOR" EntityType="Self.PROVEEDOR" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TANDALABOR" EntityType="Self.TANDALABOR" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TIPOUSUARIO" EntityType="Self.TIPOUSUARIO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USUARIO" EntityType="Self.USUARIO" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Articulos__Estad__5CD6CB2B" Association="Self.FK__Articulos__Estad__5CD6CB2B">
+      <End Role="ESTADO" EntitySet="ESTADO" />
+      <End Role="Articulos" EntitySet="Articulos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CAFETERIA__Estad__5DCAEF64" Association="Self.FK__CAFETERIA__Estad__5DCAEF64">
+      <End Role="ESTADO" EntitySet="ESTADO" />
+      <End Role="CAFETERIA" EntitySet="CAFETERIA" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CAMPUS__Estado__5EBF139D" Association="Self.FK__CAMPUS__Estado__5EBF139D">
+      <End Role="ESTADO" EntitySet="ESTADO" />
+      <End Role="CAMPUS" EntitySet="CAMPUS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EMPLEADO__Estado__5FB337D6" Association="Self.FK__EMPLEADO__Estado__5FB337D6">
+      <End Role="ESTADO" EntitySet="ESTADO" />
+      <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MARCA__Estado__60A75C0F" Association="Self.FK__MARCA__Estado__60A75C0F">
+      <End Role="ESTADO" EntitySet="ESTADO" />
+      <End Role="MARCA" EntitySet="MARCA" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PROVEEDOR__Estad__6477ECF3" Association="Self.FK__PROVEEDOR__Estad__6477ECF3">
+      <End Role="ESTADO" EntitySet="ESTADO" />
+      <End Role="PROVEEDOR" EntitySet="PROVEEDOR" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TANDALABO__Estad__656C112C" Association="Self.FK__TANDALABO__Estad__656C112C">
+      <End Role="ESTADO" EntitySet="ESTADO" />
+      <End Role="TANDALABOR" EntitySet="TANDALABOR" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TIPOUSUAR__Estad__6383C8BA" Association="Self.FK__TIPOUSUAR__Estad__6383C8BA">
+      <End Role="ESTADO" EntitySet="ESTADO" />
+      <End Role="TIPOUSUARIO" EntitySet="TIPOUSUARIO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__USUARIO__Estado__628FA481" Association="Self.FK__USUARIO__Estado__628FA481">
+      <End Role="ESTADO" EntitySet="ESTADO" />
+      <End Role="USUARIO" EntitySet="USUARIO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Articulo_Marca" Association="Self.FK_Articulo_Marca">
+      <End Role="MARCA" EntitySet="MARCA" />
+      <End Role="Articulos" EntitySet="Articulos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Articulo_Proveedor" Association="Self.FK_Articulo_Proveedor">
+      <End Role="PROVEEDOR" EntitySet="PROVEEDOR" />
+      <End Role="Articulos" EntitySet="Articulos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_cafeteria_articulo1" Association="Self.FK_cafeteria_articulo1">
+      <End Role="Articulos" EntitySet="Articulos" />
+      <End Role="CAFETERIARTICULO" EntitySet="CAFETERIARTICULO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_cafeteria_articulo2" Association="Self.FK_cafeteria_articulo2">
+      <End Role="CAFETERIA" EntitySet="CAFETERIA" />
+      <End Role="CAFETERIARTICULO" EntitySet="CAFETERIARTICULO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_cafeteria_empleado1" Association="Self.FK_cafeteria_empleado1">
+      <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+      <End Role="CAFETERIAEMPLEADO" EntitySet="CAFETERIAEMPLEADO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_cafeteria_empleado2" Association="Self.FK_cafeteria_empleado2">
+      <End Role="CAFETERIA" EntitySet="CAFETERIA" />
+      <End Role="CAFETERIAEMPLEADO" EntitySet="CAFETERIAEMPLEADO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Campus" Association="Self.FK_Campus">
+      <End Role="CAMPUS" EntitySet="CAMPUS" />
+      <End Role="CAFETERIA" EntitySet="CAFETERIA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_detalle_articulo" Association="Self.FK_detalle_articulo">
+      <End Role="Articulos" EntitySet="Articulos" />
+      <End Role="DetalleFactura" EntitySet="DetalleFactura" />
+    </AssociationSet>
+    <AssociationSet Name="FK_detalle_factura" Association="Self.FK_detalle_factura">
+      <End Role="Factura" EntitySet="Factura" />
+      <End Role="DetalleFactura" EntitySet="DetalleFactura" />
+    </AssociationSet>
+    <AssociationSet Name="FK_facturacion_articulo" Association="Self.FK_facturacion_articulo">
+      <End Role="Articulos" EntitySet="Articulos" />
+      <End Role="FACTURACION_ARTICULOS" EntitySet="FACTURACION_ARTICULOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_facturacion_empleado" Association="Self.FK_facturacion_empleado">
+      <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+      <End Role="FACTURACION_ARTICULOS" EntitySet="FACTURACION_ARTICULOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_facturacion_usuario" Association="Self.FK_facturacion_usuario">
+      <End Role="USUARIO" EntitySet="USUARIO" />
+      <End Role="FACTURACION_ARTICULOS" EntitySet="FACTURACION_ARTICULOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TandaLabor" Association="Self.FK_TandaLabor">
+      <End Role="TANDALABOR" EntitySet="TANDALABOR" />
+      <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tipo_Usuario" Association="Self.FK_Tipo_Usuario">
+      <End Role="TIPOUSUARIO" EntitySet="TIPOUSUARIO" />
+      <End Role="USUARIO" EntitySet="USUARIO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuario_Cafeteria" Association="Self.FK_Usuario_Cafeteria">
+      <End Role="CAFETERIA" EntitySet="CAFETERIA" />
+      <End Role="Factura" EntitySet="Factura" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuario_Empleado" Association="Self.FK_Usuario_Empleado">
+      <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+      <End Role="Factura" EntitySet="Factura" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuario_Factura" Association="Self.FK_Usuario_Factura">
+      <End Role="USUARIO" EntitySet="USUARIO" />
+      <End Role="Factura" EntitySet="Factura" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

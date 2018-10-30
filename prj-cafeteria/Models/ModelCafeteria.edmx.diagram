@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7c21e8e5435044cca3acd0aec657bc08" Name="Diagram1" ZoomLevel="64">
+        <EntityTypeShape EntityType="CafeteriaUnapecModel.Articulos" Width="1.5" PointX="5.25" PointY="22.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CafeteriaUnapecModel.CAFETERIA" Width="1.5" PointX="5.25" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CafeteriaUnapecModel.CAFETERIAEMPLEADO" Width="1.5" PointX="7.5" PointY="20.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CafeteriaUnapecModel.CAFETERIARTICULO" Width="1.5" PointX="10.5" PointY="20.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CafeteriaUnapecModel.CAMPUS" Width="1.5" PointX="3" PointY="19.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CafeteriaUnapecModel.DetalleFactura" Width="1.5" PointX="9.75" PointY="24.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CafeteriaUnapecModel.EMPLEADO" Width="1.5" PointX="3" PointY="22.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CafeteriaUnapecModel.Factura" Width="1.5" PointX="7.5" PointY="23.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CafeteriaUnapecModel.FACTURACION_ARTICULOS" Width="1.5" PointX="7.5" PointY="27.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CafeteriaUnapecModel.MARCA" Width="1.5" PointX="3" PointY="26.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CafeteriaUnapecModel.PROVEEDOR" Width="1.5" PointX="3" PointY="29.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CafeteriaUnapecModel.TIPOUSUARIO" Width="1.5" PointX="3" PointY="32.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CafeteriaUnapecModel.USUARIO" Width="1.5" PointX="5.25" PointY="27.125" IsExpanded="true" />
+        <AssociationConnector Association="CafeteriaUnapecModel.FK_Articulo_Marca" ManuallyRouted="false" />
+        <AssociationConnector Association="CafeteriaUnapecModel.FK_Articulo_Proveedor" ManuallyRouted="false" />
+        <AssociationConnector Association="CafeteriaUnapecModel.FK_cafeteria_articulo1" ManuallyRouted="false" />
+        <AssociationConnector Association="CafeteriaUnapecModel.FK_detalle_articulo" ManuallyRouted="false" />
+        <AssociationConnector Association="CafeteriaUnapecModel.FK_facturacion_articulo" ManuallyRouted="false" />
+        <AssociationConnector Association="CafeteriaUnapecModel.FK_cafeteria_articulo2" ManuallyRouted="false" />
+        <AssociationConnector Association="CafeteriaUnapecModel.FK_cafeteria_empleado2" ManuallyRouted="false" />
+        <AssociationConnector Association="CafeteriaUnapecModel.FK_Campus" ManuallyRouted="false" />
+        <AssociationConnector Association="CafeteriaUnapecModel.FK_Usuario_Cafeteria" ManuallyRouted="false" />
+        <AssociationConnector Association="CafeteriaUnapecModel.FK_cafeteria_empleado1" ManuallyRouted="false" />
+        <AssociationConnector Association="CafeteriaUnapecModel.FK_detalle_factura" ManuallyRouted="false" />
+        <AssociationConnector Association="CafeteriaUnapecModel.FK_facturacion_empleado" ManuallyRouted="false" />
+        <AssociationConnector Association="CafeteriaUnapecModel.FK_Usuario_Empleado" ManuallyRouted="false" />
+        <AssociationConnector Association="CafeteriaUnapecModel.FK_Usuario_Factura" ManuallyRouted="false" />
+        <AssociationConnector Association="CafeteriaUnapecModel.FK_facturacion_usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="CafeteriaUnapecModel.FK_Tipo_Usuario" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="CafeteriaUnapecModel.TANDALABOR" Width="1.5" PointX="3" PointY="15.75" />
+        <AssociationConnector Association="CafeteriaUnapecModel.FK_TandaLabor" />
+        <EntityTypeShape EntityType="CafeteriaUnapecModel.ESTADO" Width="1.5" PointX="0.75" PointY="23.375" />
+        <AssociationConnector Association="CafeteriaUnapecModel.FK__Articulos__Estad__5CD6CB2B" />
+        <AssociationConnector Association="CafeteriaUnapecModel.FK__CAFETERIA__Estad__5DCAEF64" />
+        <AssociationConnector Association="CafeteriaUnapecModel.FK__CAMPUS__Estado__5EBF139D" />
+        <AssociationConnector Association="CafeteriaUnapecModel.FK__EMPLEADO__Estado__5FB337D6" />
+        <AssociationConnector Association="CafeteriaUnapecModel.FK__MARCA__Estado__60A75C0F" />
+        <AssociationConnector Association="CafeteriaUnapecModel.FK__PROVEEDOR__Estad__6477ECF3" />
+        <AssociationConnector Association="CafeteriaUnapecModel.FK__TANDALABO__Estad__656C112C" />
+        <AssociationConnector Association="CafeteriaUnapecModel.FK__TIPOUSUAR__Estad__6383C8BA" />
+        <AssociationConnector Association="CafeteriaUnapecModel.FK__USUARIO__Estado__628FA481" />
+        <EntityTypeShape EntityType="CafeteriaUnapecModel.AspNetRoles" Width="1.5" PointX="0.75" PointY="2" />
+        <EntityTypeShape EntityType="CafeteriaUnapecModel.AspNetUsers" Width="1.5" PointX="3" PointY="1" />
+        <AssociationConnector Association="CafeteriaUnapecModel.AspNetUserRoles" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
