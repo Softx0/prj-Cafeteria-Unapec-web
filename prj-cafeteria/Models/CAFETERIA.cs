@@ -26,12 +26,15 @@ namespace prj_cafeteria.Models
         public int ID { get; set; }
 
         [Display(Name = "Cafeteria"), Required(ErrorMessage = "Es obligatorio")]
+        [RegularExpression(@"^[a-zA-Z\s]+$", ErrorMessage = "Solo letras permitidas!")]
         public string NOMBRE { get; set; }
 
         [Display(Name = "Descripcion"), Required(ErrorMessage = "Es obligatorio")]
+        [RegularExpression(@"^[a-zA-Z\s]+$", ErrorMessage = "Solo letras permitidas!")]
         public string DESCRIPCION { get; set; }
 
         [Display(Name = "Encargado"), Required(ErrorMessage = "Es obligatorio")]
+        [RegularExpression(@"^[a-zA-Z\s]+$", ErrorMessage = "Solo letras permitidas!")]
         public string ENCARGADO { get; set; }
         public Nullable<int> IDCAMPUS { get; set; }
         public Nullable<int> Estado { get; set; }

@@ -1,4 +1,4 @@
-﻿@model prj_cafeteria.Models.ESTADO
+﻿@model prj_cafeteria.Models.AspNetRoles
 
 @{
     ViewBag.Title = "Edit";
@@ -12,16 +12,16 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>ESTADO</h4>
+        <h4>AspNetRoles</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.Id)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Estado1, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Estado1, new { htmlAttributes = new { @type = "text", @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Estado1, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
             </div>
         </div>
 

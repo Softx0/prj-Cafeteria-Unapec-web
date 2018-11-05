@@ -7,121 +7,110 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using prj_cafeteria.Models;
-using prj_cafeteria.Utils;
 
 namespace prj_cafeteria.Controllers
 {
-    public class ProveedorController : Controller
+    public class AspNetUsersController : Controller
     {
         private CafeteriaUnapecEntities db = new CafeteriaUnapecEntities();
-        private Validaciones validaciones = new Validaciones();
 
-        // GET: Proveedor
+        // GET: AspNetUsers
         public ActionResult Index()
         {
-            var pROVEEDOR = db.PROVEEDOR.Include(p => p.ESTADO1);
-            return View(pROVEEDOR.ToList());
+            return View(db.AspNetUsers.ToList());
         }
 
-        // GET: Proveedor/Details/5
-        public ActionResult Details(int? id)
+        // GET: AspNetUsers/Details/5
+        public ActionResult Details(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PROVEEDOR pROVEEDOR = db.PROVEEDOR.Find(id);
-            if (pROVEEDOR == null)
+            AspNetUsers aspNetUsers = db.AspNetUsers.Find(id);
+            if (aspNetUsers == null)
             {
                 return HttpNotFound();
             }
-            return View(pROVEEDOR);
+            return View(aspNetUsers);
         }
 
-        // GET: Proveedor/Create
+        // GET: AspNetUsers/Create
         public ActionResult Create()
         {
-            ViewBag.Estado = new SelectList(db.ESTADO, "Id", "Estado1");
             return View();
         }
 
-        // POST: Proveedor/Create
+        // POST: AspNetUsers/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,NOMBRE,RNC,FECHAREGISTRO,Estado")] PROVEEDOR pROVEEDOR)
+        public ActionResult Create([Bind(Include = "Id,Email,EmailConfirmed,PasswordHash,SecurityStamp,PhoneNumber,PhoneNumberConfirmed,TwoFactorEnabled,LockoutEndDateUtc,LockoutEnabled,AccessFailedCount,UserName")] AspNetUsers aspNetUsers)
         {
             if (ModelState.IsValid)
             {
-                if (validaciones.valiRNC(pROVEEDOR.RNC))
-                {
-                    db.PROVEEDOR.Add(pROVEEDOR);
-                    db.SaveChanges();
-                    return RedirectToAction("Index");
-                }
-            }
-
-            ModelState.AddModelError("RNC", "El RNC es incorrecto.");
-            ViewBag.Estado = new SelectList(db.ESTADO, "Id", "Estado1", pROVEEDOR.Estado);
-            return View(pROVEEDOR);
-        }
-
-        // GET: Proveedor/Edit/5
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            PROVEEDOR pROVEEDOR = db.PROVEEDOR.Find(id);
-            if (pROVEEDOR == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.Estado = new SelectList(db.ESTADO, "Id", "Estado1", pROVEEDOR.Estado);
-            return View(pROVEEDOR);
-        }
-
-        // POST: Proveedor/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,NOMBRE,RNC,FECHAREGISTRO,Estado")] PROVEEDOR pROVEEDOR)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(pROVEEDOR).State = EntityState.Modified;
+                db.AspNetUsers.Add(aspNetUsers);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Estado = new SelectList(db.ESTADO, "Id", "Estado1", pROVEEDOR.Estado);
-            return View(pROVEEDOR);
+
+            return View(aspNetUsers);
         }
 
-        // GET: Proveedor/Delete/5
-        public ActionResult Delete(int? id)
+        // GET: AspNetUsers/Edit/5
+        public ActionResult Edit(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PROVEEDOR pROVEEDOR = db.PROVEEDOR.Find(id);
-            if (pROVEEDOR == null)
+            AspNetUsers aspNetUsers = db.AspNetUsers.Find(id);
+            if (aspNetUsers == null)
             {
                 return HttpNotFound();
             }
-            return View(pROVEEDOR);
+            return View(aspNetUsers);
         }
 
-        // POST: Proveedor/Delete/5
+        // POST: AspNetUsers/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "Id,Email,EmailConfirmed,PasswordHash,SecurityStamp,PhoneNumber,PhoneNumberConfirmed,TwoFactorEnabled,LockoutEndDateUtc,LockoutEnabled,AccessFailedCount,UserName")] AspNetUsers aspNetUsers)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(aspNetUsers).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(aspNetUsers);
+        }
+
+        // GET: AspNetUsers/Delete/5
+        public ActionResult Delete(string id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            AspNetUsers aspNetUsers = db.AspNetUsers.Find(id);
+            if (aspNetUsers == null)
+            {
+                return HttpNotFound();
+            }
+            return View(aspNetUsers);
+        }
+
+        // POST: AspNetUsers/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(string id)
         {
-            PROVEEDOR pROVEEDOR = db.PROVEEDOR.Find(id);
-            db.PROVEEDOR.Remove(pROVEEDOR);
+            AspNetUsers aspNetUsers = db.AspNetUsers.Find(id);
+            db.AspNetUsers.Remove(aspNetUsers);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

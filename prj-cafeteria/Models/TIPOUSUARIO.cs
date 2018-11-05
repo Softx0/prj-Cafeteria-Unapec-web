@@ -24,6 +24,7 @@ namespace prj_cafeteria.Models
         public int ID { get; set; }
 
         [Display(Name = "Tipo de Usuario"), Required(ErrorMessage = "Es obligatorio")]
+        [RegularExpression(@"^[a-zA-Z\s]+$", ErrorMessage = "Solo letras permitidas!")]
         public string DESCRIPCION { get; set; }
         public Nullable<int> Estado { get; set; }
     

@@ -61,10 +61,6 @@ namespace prj_cafeteria.Controllers
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
-                else
-                {
-                    ModelState.AddModelError("Cedula", "La Cedula es incorrecta.");
-                }
             }
 
             ModelState.AddModelError("Cedula", "La Cedula es incorrecta.");

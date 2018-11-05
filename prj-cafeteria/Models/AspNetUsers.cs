@@ -11,29 +11,29 @@ namespace prj_cafeteria.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
-    public partial class CAMPUS
+    
+    public partial class AspNetUsers
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public CAMPUS()
+        public AspNetUsers()
         {
-            this.CAFETERIA = new HashSet<CAFETERIA>();
+            this.AspNetRoles = new HashSet<AspNetRoles>();
         }
     
-        public int ID { get; set; }
-
-        [Display(Name = "Campus"), Required(ErrorMessage = "Es obligatorio")]
-        [RegularExpression(@"^[a-zA-Z\s]+$", ErrorMessage = "Solo letras permitidas!")]
-        public string NOMBRE { get; set; }
-
-        [Display(Name = "Descripcion"), Required(ErrorMessage = "Es obligatorio")]
-        [RegularExpression(@"^[a-zA-Z\s]+$", ErrorMessage = "Solo letras permitidas!")]
-        public string DESCRIPCION { get; set; }
-        public Nullable<int> Estado { get; set; }
+        public string Id { get; set; }
+        public string Email { get; set; }
+        public bool EmailConfirmed { get; set; }
+        public string PasswordHash { get; set; }
+        public string SecurityStamp { get; set; }
+        public string PhoneNumber { get; set; }
+        public bool PhoneNumberConfirmed { get; set; }
+        public bool TwoFactorEnabled { get; set; }
+        public Nullable<System.DateTime> LockoutEndDateUtc { get; set; }
+        public bool LockoutEnabled { get; set; }
+        public int AccessFailedCount { get; set; }
+        public string UserName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CAFETERIA> CAFETERIA { get; set; }
-        public virtual ESTADO ESTADO1 { get; set; }
+        public virtual ICollection<AspNetRoles> AspNetRoles { get; set; }
     }
 }

@@ -24,9 +24,11 @@ namespace prj_cafeteria.Models
         public int ID { get; set; }
 
         [Display(Name = "Proveedor"), Required(ErrorMessage = "Es obligatorio")]
+        [RegularExpression(@"^[a-zA-Z\s]+$", ErrorMessage = "Solo letras permitidas!")]
         public string NOMBRE { get; set; }
 
         [Display(Name = "RNC"), Required(ErrorMessage = "Es obligatorio")]
+        [RegularExpression("([1-9][0-9]*)", ErrorMessage = "Debe ser un numero!")]
         [StringLength(9, MinimumLength = 9, ErrorMessage = "La longitud del RNC es incorrecta.")]
         public string RNC { get; set; }
 

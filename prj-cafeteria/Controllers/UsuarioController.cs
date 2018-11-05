@@ -7,12 +7,14 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using prj_cafeteria.Models;
+using prj_cafeteria.Utils;
 
 namespace prj_cafeteria.Controllers
 {
     public class UsuarioController : Controller
     {
         private CafeteriaUnapecEntities db = new CafeteriaUnapecEntities();
+        private Validaciones validaciones = new Validaciones();
 
         // GET: Usuario
         public ActionResult Index()
@@ -53,11 +55,15 @@ namespace prj_cafeteria.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.USUARIO.Add(uSUARIO);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (validaciones.valiCedula(uSUARIO.CEDULA))
+                {
+                    db.USUARIO.Add(uSUARIO);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
             }
 
+            ModelState.AddModelError("Cedula", "La Cedula es incorrecta.");
             ViewBag.IDTIPOUSUARIO = new SelectList(db.TIPOUSUARIO, "ID", "DESCRIPCION", uSUARIO.IDTIPOUSUARIO);
             ViewBag.Estado = new SelectList(db.ESTADO, "Id", "Estado1", uSUARIO.Estado);
             return View(uSUARIO);

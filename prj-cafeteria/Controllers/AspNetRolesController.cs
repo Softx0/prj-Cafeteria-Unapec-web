@@ -7,121 +7,110 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using prj_cafeteria.Models;
-using prj_cafeteria.Utils;
 
 namespace prj_cafeteria.Controllers
 {
-    public class ProveedorController : Controller
+    public class AspNetRolesController : Controller
     {
         private CafeteriaUnapecEntities db = new CafeteriaUnapecEntities();
-        private Validaciones validaciones = new Validaciones();
 
-        // GET: Proveedor
+        // GET: AspNetRoles
         public ActionResult Index()
         {
-            var pROVEEDOR = db.PROVEEDOR.Include(p => p.ESTADO1);
-            return View(pROVEEDOR.ToList());
+            return View(db.AspNetRoles.ToList());
         }
 
-        // GET: Proveedor/Details/5
-        public ActionResult Details(int? id)
+        // GET: AspNetRoles/Details/5
+        public ActionResult Details(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PROVEEDOR pROVEEDOR = db.PROVEEDOR.Find(id);
-            if (pROVEEDOR == null)
+            AspNetRoles aspNetRoles = db.AspNetRoles.Find(id);
+            if (aspNetRoles == null)
             {
                 return HttpNotFound();
             }
-            return View(pROVEEDOR);
+            return View(aspNetRoles);
         }
 
-        // GET: Proveedor/Create
+        // GET: AspNetRoles/Create
         public ActionResult Create()
         {
-            ViewBag.Estado = new SelectList(db.ESTADO, "Id", "Estado1");
             return View();
         }
 
-        // POST: Proveedor/Create
+        // POST: AspNetRoles/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,NOMBRE,RNC,FECHAREGISTRO,Estado")] PROVEEDOR pROVEEDOR)
+        public ActionResult Create([Bind(Include = "Id,Name")] AspNetRoles aspNetRoles)
         {
             if (ModelState.IsValid)
             {
-                if (validaciones.valiRNC(pROVEEDOR.RNC))
-                {
-                    db.PROVEEDOR.Add(pROVEEDOR);
-                    db.SaveChanges();
-                    return RedirectToAction("Index");
-                }
-            }
-
-            ModelState.AddModelError("RNC", "El RNC es incorrecto.");
-            ViewBag.Estado = new SelectList(db.ESTADO, "Id", "Estado1", pROVEEDOR.Estado);
-            return View(pROVEEDOR);
-        }
-
-        // GET: Proveedor/Edit/5
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            PROVEEDOR pROVEEDOR = db.PROVEEDOR.Find(id);
-            if (pROVEEDOR == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.Estado = new SelectList(db.ESTADO, "Id", "Estado1", pROVEEDOR.Estado);
-            return View(pROVEEDOR);
-        }
-
-        // POST: Proveedor/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,NOMBRE,RNC,FECHAREGISTRO,Estado")] PROVEEDOR pROVEEDOR)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(pROVEEDOR).State = EntityState.Modified;
+                db.AspNetRoles.Add(aspNetRoles);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Estado = new SelectList(db.ESTADO, "Id", "Estado1", pROVEEDOR.Estado);
-            return View(pROVEEDOR);
+
+            return View(aspNetRoles);
         }
 
-        // GET: Proveedor/Delete/5
-        public ActionResult Delete(int? id)
+        // GET: AspNetRoles/Edit/5
+        public ActionResult Edit(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PROVEEDOR pROVEEDOR = db.PROVEEDOR.Find(id);
-            if (pROVEEDOR == null)
+            AspNetRoles aspNetRoles = db.AspNetRoles.Find(id);
+            if (aspNetRoles == null)
             {
                 return HttpNotFound();
             }
-            return View(pROVEEDOR);
+            return View(aspNetRoles);
         }
 
-        // POST: Proveedor/Delete/5
+        // POST: AspNetRoles/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "Id,Name")] AspNetRoles aspNetRoles)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(aspNetRoles).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(aspNetRoles);
+        }
+
+        // GET: AspNetRoles/Delete/5
+        public ActionResult Delete(string id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            AspNetRoles aspNetRoles = db.AspNetRoles.Find(id);
+            if (aspNetRoles == null)
+            {
+                return HttpNotFound();
+            }
+            return View(aspNetRoles);
+        }
+
+        // POST: AspNetRoles/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(string id)
         {
-            PROVEEDOR pROVEEDOR = db.PROVEEDOR.Find(id);
-            db.PROVEEDOR.Remove(pROVEEDOR);
+            AspNetRoles aspNetRoles = db.AspNetRoles.Find(id);
+            db.AspNetRoles.Remove(aspNetRoles);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

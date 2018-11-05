@@ -27,13 +27,16 @@ namespace prj_cafeteria.Models
         public Nullable<int> IDTANDALABOR { get; set; }
 
         [Display(Name = "Empleado"), Required(ErrorMessage = "Es obligatorio")]
+        [RegularExpression(@"^[a-zA-Z\s]+$", ErrorMessage = "Solo letras permitidas!")]
         public string NOMBRE { get; set; }
 
         [Display(Name = "Cedula"), Required(ErrorMessage = "Es obligatorio.")]
+        [RegularExpression("([1-9][0-9]*)", ErrorMessage = "Debe ser un numero!")]
         [StringLength(11, MinimumLength = 11, ErrorMessage = "La longitud de la Cedula es incorrecta.")]
         public string CEDULA { get; set; }
 
         [Display(Name = "Comision"), Required(ErrorMessage = "Es obligatorio.")]
+        [RegularExpression("([1-9][0-9]*)", ErrorMessage = "Debe ser un numero!")]
         public decimal COMISION { get; set; }
 
         [Display(Name = "Fecha de Registro"), Required(ErrorMessage = "Es obligatorio.")]
