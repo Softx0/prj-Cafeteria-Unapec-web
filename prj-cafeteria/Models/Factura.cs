@@ -29,12 +29,19 @@ namespace prj_cafeteria.Models
         public string fecha { get; set; }
 
         [Display(Name = "Modo De Pago"), Required(ErrorMessage = "Es obligatorio")]
+        [RegularExpression(@"^[a-zA-Z\s]+$", ErrorMessage = "Solo letras permitidas!")]
         public string modoPago { get; set; }
 
         [Display(Name = "Monto Total"), Required(ErrorMessage = "Es obligatorio")]
         public Nullable<decimal> montoTotal { get; set; }
+
+        [Display(Name = "Usuario"), Required(ErrorMessage = "Es obligatorio")]
         public Nullable<int> idUsuario { get; set; }
+
+        [Display(Name = "Empleado"), Required(ErrorMessage = "Es obligatorio")]
         public Nullable<int> idEmpleado { get; set; }
+
+        [Display(Name = "Cafeteria"), Required(ErrorMessage = "Es obligatorio")]
         public int idCafeteria { get; set; }
     
         public virtual CAFETERIA CAFETERIA { get; set; }

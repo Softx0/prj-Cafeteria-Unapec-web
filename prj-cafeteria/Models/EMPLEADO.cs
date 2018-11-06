@@ -24,6 +24,8 @@ namespace prj_cafeteria.Models
         }
     
         public int ID { get; set; }
+
+        [Display(Name = "Tanda Labor"), Required(ErrorMessage = "Es obligatorio")]
         public Nullable<int> IDTANDALABOR { get; set; }
 
         [Display(Name = "Empleado"), Required(ErrorMessage = "Es obligatorio")]
@@ -41,6 +43,7 @@ namespace prj_cafeteria.Models
 
         [Display(Name = "Fecha de Registro"), Required(ErrorMessage = "Es obligatorio.")]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
+        [DataType(DataType.Date)]
         public Nullable<System.DateTime> FECHAREGISTRO { get; set; }
         public Nullable<int> Estado { get; set; }
     

@@ -40,7 +40,7 @@ namespace prj_cafeteria.Controllers
         public ActionResult Create()
         {
             ViewBag.idArticulo = new SelectList(db.Articulos, "ID", "DESCRIPCION");
-            ViewBag.idFactura = new SelectList(db.Factura, "ID", "fecha");
+            ViewBag.idFactura = new SelectList(db.Factura, "ID", "ID");
             return View();
         }
 
@@ -59,7 +59,7 @@ namespace prj_cafeteria.Controllers
             }
 
             ViewBag.idArticulo = new SelectList(db.Articulos, "ID", "DESCRIPCION", detalleFactura.idArticulo);
-            ViewBag.idFactura = new SelectList(db.Factura, "ID", "fecha", detalleFactura.idFactura);
+            ViewBag.idFactura = new SelectList(db.Factura, "ID", "ID", detalleFactura.idFactura);
             return View(detalleFactura);
         }
 

@@ -11,14 +11,21 @@ namespace prj_cafeteria.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class DetalleFactura
     {
+
+        
         public int idDetalleFactura { get; set; }
+        
         public Nullable<int> idArticulo { get; set; }
+        
         public Nullable<int> idFactura { get; set; }
+
+        [Display(Name = "Unidades"), Required(ErrorMessage = "Es obligatorio")]
         public Nullable<int> unidades { get; set; }
-    
+        
         public virtual Articulos Articulos { get; set; }
         public virtual Factura Factura { get; set; }
     }
