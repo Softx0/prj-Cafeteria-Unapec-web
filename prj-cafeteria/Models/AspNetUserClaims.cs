@@ -12,14 +12,13 @@ namespace prj_cafeteria.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class DetalleFactura
+    public partial class AspNetUserClaims
     {
-        public int idDetalleFactura { get; set; }
-        public Nullable<int> idArticulo { get; set; }
-        public Nullable<int> idFactura { get; set; }
-        public Nullable<int> unidades { get; set; }
+        public int Id { get; set; }
+        public string UserId { get; set; }
+        public string ClaimType { get; set; }
+        public string ClaimValue { get; set; }
     
-        public virtual Articulos Articulos { get; set; }
-        public virtual Factura Factura { get; set; }
+        public virtual AspNetUsers AspNetUsers { get; set; }
     }
 }

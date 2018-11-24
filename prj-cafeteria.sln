@@ -5,43 +5,6 @@ VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "prj-cafeteria", "prj-cafeteria\prj-cafeteria.csproj", "{F75777A7-845E-4B9E-BA19-198290CAEE29}"
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WSPractice", "..\..\..\..\source\repos\WSPractice\WSPractice\", "{999F6C3A-4674-4C61-BD37-F2EBBE841624}"
-	ProjectSection(WebsiteProperties) = preProject
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6.1"
-		Debug.AspNetCompiler.VirtualPath = "/localhost_59642"
-		Debug.AspNetCompiler.PhysicalPath = "..\..\..\..\source\repos\WSPractice\WSPractice\"
-		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_59642\"
-		Debug.AspNetCompiler.Updateable = "true"
-		Debug.AspNetCompiler.ForceOverwrite = "true"
-		Debug.AspNetCompiler.FixedNames = "false"
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/localhost_59642"
-		Release.AspNetCompiler.PhysicalPath = "..\..\..\..\source\repos\WSPractice\WSPractice\"
-		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_59642\"
-		Release.AspNetCompiler.Updateable = "true"
-		Release.AspNetCompiler.ForceOverwrite = "true"
-		Release.AspNetCompiler.FixedNames = "false"
-		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "59642"
-		SlnRelativePath = "..\..\..\..\source\repos\WSPractice\WSPractice\"
-		DefaultWebSiteLanguage = "Visual C#"
-	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientWS", "..\..\..\..\source\repos\WSPractice\ClientWS\ClientWS.csproj", "{D8B014DC-EA71-490F-AA8E-B571101CBFD7}"
-	ProjectSection(ProjectDependencies) = postProject
-		{999F6C3A-4674-4C61-BD37-F2EBBE841624} = {999F6C3A-4674-4C61-BD37-F2EBBE841624}
-	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WSBDClient", "..\..\..\..\source\repos\WSPractice\WSBDClient\WSBDClient.csproj", "{097794F6-27E2-47C1-8B8C-543A5E0A1285}"
-	ProjectSection(ProjectDependencies) = postProject
-		{999F6C3A-4674-4C61-BD37-F2EBBE841624} = {999F6C3A-4674-4C61-BD37-F2EBBE841624}
-	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WSClient", "..\..\..\..\source\repos\WSPractice\WSClient\WSClient.csproj", "{F68F17CA-F1C6-4C17-B413-D4C7A2E6606E}"
-	ProjectSection(ProjectDependencies) = postProject
-		{999F6C3A-4674-4C61-BD37-F2EBBE841624} = {999F6C3A-4674-4C61-BD37-F2EBBE841624}
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -52,22 +15,6 @@ Global
 		{F75777A7-845E-4B9E-BA19-198290CAEE29}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F75777A7-845E-4B9E-BA19-198290CAEE29}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F75777A7-845E-4B9E-BA19-198290CAEE29}.Release|Any CPU.Build.0 = Release|Any CPU
-		{999F6C3A-4674-4C61-BD37-F2EBBE841624}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{999F6C3A-4674-4C61-BD37-F2EBBE841624}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{999F6C3A-4674-4C61-BD37-F2EBBE841624}.Release|Any CPU.ActiveCfg = Debug|Any CPU
-		{999F6C3A-4674-4C61-BD37-F2EBBE841624}.Release|Any CPU.Build.0 = Debug|Any CPU
-		{D8B014DC-EA71-490F-AA8E-B571101CBFD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D8B014DC-EA71-490F-AA8E-B571101CBFD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D8B014DC-EA71-490F-AA8E-B571101CBFD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D8B014DC-EA71-490F-AA8E-B571101CBFD7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{097794F6-27E2-47C1-8B8C-543A5E0A1285}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{097794F6-27E2-47C1-8B8C-543A5E0A1285}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{097794F6-27E2-47C1-8B8C-543A5E0A1285}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{097794F6-27E2-47C1-8B8C-543A5E0A1285}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F68F17CA-F1C6-4C17-B413-D4C7A2E6606E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F68F17CA-F1C6-4C17-B413-D4C7A2E6606E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F68F17CA-F1C6-4C17-B413-D4C7A2E6606E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F68F17CA-F1C6-4C17-B413-D4C7A2E6606E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

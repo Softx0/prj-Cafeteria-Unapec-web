@@ -54,15 +54,15 @@ namespace prj_cafeteria.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (validaciones.valiRNC(pROVEEDOR.RNC))
-                {
-                    db.PROVEEDOR.Add(pROVEEDOR);
-                    db.SaveChanges();
-                    return RedirectToAction("Index");
-                }
+
+                db.PROVEEDOR.Add(pROVEEDOR);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+
+
             }
 
-            ModelState.AddModelError("RNC", "El RNC es incorrecto.");
+
             ViewBag.Estado = new SelectList(db.ESTADO, "Id", "Estado1", pROVEEDOR.Estado);
             return View(pROVEEDOR);
         }

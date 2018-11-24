@@ -15,10 +15,17 @@ namespace prj_cafeteria.Controllers
         private CafeteriaUnapecEntities db = new CafeteriaUnapecEntities();
 
         // GET: DetalleFacturas
-        public ActionResult Index()
+        public ActionResult Index(string Criterio = null)
         {
             var detalleFactura = db.DetalleFactura.Include(d => d.Articulos).Include(d => d.Factura);
-            return View(detalleFactura.ToList());
+           // return View(detalleFactura);
+            /*
+            ViewBag.Total = detalleFactura.Sum(m => m.unidades);*/
+            return View(db.DetalleFactura.Where(p => Criterio == null || 
+                                                p.unidades.ToString().StartsWith(Criterio) || 
+                                                p.Articulos.DESCRIPCION.StartsWith(Criterio))
+                                                .ToList());
+                                                
         }
 
         // GET: DetalleFacturas/Details/5

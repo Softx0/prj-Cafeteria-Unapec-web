@@ -10,6 +10,12 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+
+<form method="get">
+    <input type="text" id="Criterio" name="Criterio" />
+    <input type="submit" id="cmdBuscar" value="Buscar" />
+</form>
+
 <table class="table">
     <tr>
         <th>
@@ -21,26 +27,42 @@
         <th>
             @Html.DisplayNameFor(model => model.Factura.fecha)
         </th>
+        <th>
+            @Html.DisplayName("Factura")
+        </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.unidades)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Articulos.DESCRIPCION)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Factura.fecha)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.idDetalleFactura }) |
-            @Html.ActionLink("Details", "Details", new { id=item.idDetalleFactura }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.idDetalleFactura })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.unidades)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Articulos.DESCRIPCION)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Factura.fecha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Factura.ID)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.idDetalleFactura }) |
+                @Html.ActionLink("Details", "Details", new { id = item.idDetalleFactura }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.idDetalleFactura })
+            </td>
+        </tr>
+    }
+
+
+    @*
+        <tr>
+            <td align="left">
+                <strong>Total: @ViewBag.Total</strong>
+            </td>
+        </tr>'
+    *@
 
 </table>

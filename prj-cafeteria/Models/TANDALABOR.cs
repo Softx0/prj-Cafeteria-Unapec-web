@@ -11,8 +11,7 @@ namespace prj_cafeteria.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class TANDALABOR
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,9 +21,6 @@ namespace prj_cafeteria.Models
         }
     
         public int ID { get; set; }
-
-        [Display(Name = "Tanda de Labor"), Required(ErrorMessage = "Es obligatorio")]
-        [RegularExpression(@"^[a-zA-Z\s]+$", ErrorMessage = "Solo letras permitidas!")]
         public string TANDA { get; set; }
         public Nullable<int> Estado { get; set; }
     

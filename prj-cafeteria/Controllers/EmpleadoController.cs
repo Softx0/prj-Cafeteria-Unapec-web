@@ -61,9 +61,13 @@ namespace prj_cafeteria.Controllers
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
+                else
+                {
+                    ModelState.AddModelError("Cedula", "La Cedula es incorrecta.");
+                }
             }
 
-            ModelState.AddModelError("Cedula", "La Cedula es incorrecta.");
+            
             ViewBag.IDTANDALABOR = new SelectList(db.TANDALABOR, "ID", "TANDA", eMPLEADO.IDTANDALABOR);
             ViewBag.Estado = new SelectList(db.ESTADO, "Id", "Estado1", eMPLEADO.Estado);
             return View(eMPLEADO);

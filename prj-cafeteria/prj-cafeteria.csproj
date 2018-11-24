@@ -245,6 +245,12 @@
     <Compile Include="Models\AspNetRoles.cs">
       <DependentUpon>ModelCafeteria.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\AspNetUserClaims.cs">
+      <DependentUpon>ModelCafeteria.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUserLogins.cs">
+      <DependentUpon>ModelCafeteria.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\AspNetUsers.cs">
       <DependentUpon>ModelCafeteria.tt</DependentUpon>
     </Compile>

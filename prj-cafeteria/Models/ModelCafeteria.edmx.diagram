@@ -47,8 +47,12 @@
         <AssociationConnector Association="CafeteriaUnapecModel.FK__TIPOUSUAR__Estad__6383C8BA" />
         <AssociationConnector Association="CafeteriaUnapecModel.FK__USUARIO__Estado__628FA481" />
         <EntityTypeShape EntityType="CafeteriaUnapecModel.AspNetRoles" Width="1.5" PointX="0.75" PointY="2" />
-        <EntityTypeShape EntityType="CafeteriaUnapecModel.AspNetUsers" Width="1.5" PointX="3" PointY="1" />
+        <EntityTypeShape EntityType="CafeteriaUnapecModel.AspNetUsers" Width="1.5" PointX="9" PointY="1" />
         <AssociationConnector Association="CafeteriaUnapecModel.AspNetUserRoles" />
+        <EntityTypeShape EntityType="CafeteriaUnapecModel.AspNetUserClaims" Width="1.5" PointX="5.25" PointY="5.625" />
+        <EntityTypeShape EntityType="CafeteriaUnapecModel.AspNetUserLogins" Width="1.5" PointX="5.25" PointY="8.375" />
+        <AssociationConnector Association="CafeteriaUnapecModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="CafeteriaUnapecModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

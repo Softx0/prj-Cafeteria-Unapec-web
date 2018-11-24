@@ -11,8 +11,7 @@ namespace prj_cafeteria.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class ESTADO
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -30,9 +29,6 @@ namespace prj_cafeteria.Models
         }
     
         public int Id { get; set; }
-
-        [Display(Name = "Estado"), Required(ErrorMessage = "Es obligatorio")]
-        [RegularExpression(@"^[a-zA-Z\s]+$", ErrorMessage = "Solo letras permitidas!")]
         public string Estado1 { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
