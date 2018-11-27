@@ -17,10 +17,16 @@ namespace prj_cafeteria.Controllers
         private Validaciones validaciones = new Validaciones();
 
         // GET: Usuario
-        public ActionResult Index()
+        public ActionResult Index(string Criterio = null)
         {
             var uSUARIO = db.USUARIO.Include(u => u.TIPOUSUARIO).Include(u => u.ESTADO1);
-            return View(uSUARIO.ToList());
+            return View(db.USUARIO.Where(p => Criterio == null ||
+                                                p.NOMBRE.StartsWith(Criterio) ||
+                                                p.CEDULA.StartsWith(Criterio) ||
+                                                p.TIPOUSUARIO.DESCRIPCION.StartsWith(Criterio) ||
+                                                p.LIMITECREDITO.ToString().StartsWith(Criterio)||
+                                                p.ESTADO1.Estado1.StartsWith(Criterio))
+                                                .ToList());
         }
 
         // GET: Usuario/Details/5

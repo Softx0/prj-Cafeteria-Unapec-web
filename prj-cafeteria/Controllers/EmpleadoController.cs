@@ -17,10 +17,15 @@ namespace prj_cafeteria.Controllers
         private Validaciones validaciones = new Validaciones();
 
         // GET: Empleado
-        public ActionResult Index()
+        public ActionResult Index(string Criterio = null)
         {
             var eMPLEADO = db.EMPLEADO.Include(e => e.TANDALABOR).Include(e => e.ESTADO1);
-            return View(eMPLEADO.ToList());
+            return View(db.EMPLEADO.Where(p => Criterio == null ||
+                                                p.NOMBRE.StartsWith(Criterio) ||
+                                                p.TANDALABOR.TANDA.StartsWith(Criterio) ||
+                                                p.CEDULA.StartsWith(Criterio)||
+                                                p.ESTADO1.Estado1.StartsWith(Criterio))
+                                                .ToList());
         }
 
         // GET: Empleado/Details/5
@@ -67,7 +72,7 @@ namespace prj_cafeteria.Controllers
                 }
             }
 
-            
+
             ViewBag.IDTANDALABOR = new SelectList(db.TANDALABOR, "ID", "TANDA", eMPLEADO.IDTANDALABOR);
             ViewBag.Estado = new SelectList(db.ESTADO, "Id", "Estado1", eMPLEADO.Estado);
             return View(eMPLEADO);

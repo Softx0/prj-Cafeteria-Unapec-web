@@ -15,10 +15,14 @@ namespace prj_cafeteria.Controllers
         private CafeteriaUnapecEntities db = new CafeteriaUnapecEntities();
 
         // GET: Marca
-        public ActionResult Index()
+        public ActionResult Index(string Criterio = null)
         {
             var mARCA = db.MARCA.Include(m => m.ESTADO1);
-            return View(mARCA.ToList());
+            return View(db.MARCA.Where(p => Criterio == null ||
+                                                p.NOMBRE.StartsWith(Criterio) ||
+                                                p.DESCRIPCION.StartsWith(Criterio) ||
+                                                p.ESTADO1.Estado1.StartsWith(Criterio))
+                                                .ToList());
         }
 
         // GET: Marca/Details/5

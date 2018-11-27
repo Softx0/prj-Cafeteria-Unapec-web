@@ -11,7 +11,8 @@ namespace prj_cafeteria.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Articulos
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -23,11 +24,25 @@ namespace prj_cafeteria.Models
         }
     
         public int ID { get; set; }
+
+        [RegularExpression(@"^[a-zA-Z ]+$", ErrorMessage = "Solo letras permitidas!")]
+        [Display(Name = "Descripcion"), Required(ErrorMessage = "El nombre del ítem es obligatorio")]
         public string DESCRIPCION { get; set; }
+
+        [Display(Name = "Marca"), Required(ErrorMessage = "El nombre del ítem es obligatorio")]
         public Nullable<int> IDMARCA { get; set; }
+
+        [Display(Name = "Proveedor"), Required(ErrorMessage = "El nombre del ítem es obligatorio")]
         public Nullable<int> IDPROVEEDOR { get; set; }
+
+        [Display(Name = "Costo"), Required(ErrorMessage = "El nombre del ítem es obligatorio")]
         public decimal COSTO { get; set; }
+
+        [RegularExpression(@"^[a-zA-Z ]+$", ErrorMessage = "Solo letras permitidas!")]
+        [Display(Name = "Existencia"), Required(ErrorMessage = "El nombre del ítem es obligatorio")]
         public int EXISTENCIA { get; set; }
+
+        [Display(Name = "Estado"), Required(ErrorMessage = "El nombre del ítem es obligatorio")]
         public Nullable<int> Estado { get; set; }
     
         public virtual MARCA MARCA { get; set; }

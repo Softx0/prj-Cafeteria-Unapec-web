@@ -11,7 +11,8 @@ namespace prj_cafeteria.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Factura
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,11 +22,24 @@ namespace prj_cafeteria.Models
         }
     
         public int ID { get; set; }
+
+        [Display(Name = "Fecha"), Required(ErrorMessage = "El nombre del ítem es obligatorio")]
         public string fecha { get; set; }
+
+        [RegularExpression(@"^[a-zA-Z ]+$", ErrorMessage = "Solo letras permitidas!")]
+        [Display(Name = "Modo de Pago"), Required(ErrorMessage = "El nombre del ítem es obligatorio")]
         public string modoPago { get; set; }
+
+        [Display(Name = "Monto Total"), Required(ErrorMessage = "El nombre del ítem es obligatorio")]
         public Nullable<decimal> montoTotal { get; set; }
+
+        [Display(Name = "Usuario"), Required(ErrorMessage = "El nombre del ítem es obligatorio")]
         public Nullable<int> idUsuario { get; set; }
+
+        [Display(Name = "Empleado"), Required(ErrorMessage = "El nombre del ítem es obligatorio")]
         public Nullable<int> idEmpleado { get; set; }
+
+        [Display(Name = "Cafeteria"), Required(ErrorMessage = "El nombre del ítem es obligatorio")]
         public int idCafeteria { get; set; }
     
         public virtual CAFETERIA CAFETERIA { get; set; }

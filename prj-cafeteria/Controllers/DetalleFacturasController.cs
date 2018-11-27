@@ -20,31 +20,11 @@ namespace prj_cafeteria.Controllers
         {
 
             var detalleFactura = db.DetalleFactura.Include(d => d.Articulos).Include(d => d.Factura);
-            return View(detalleFactura);
-
-            /*
-             * ViewBag.Total = detalleFactura.Sum(m => m.unidades);
-
-            return View(db.DetalleFactura.Where(p => Criterio == null || 
-                                                p.unidades.ToString().StartsWith(Criterio) || 
-                                                p.Articulos.DESCRIPCION.StartsWith(Criterio))
+            return View(db.DetalleFactura.Where(p => Criterio == null ||
+                                                p.Articulos.DESCRIPCION.StartsWith(Criterio) ||
+                                                p.Factura.ID.ToString().StartsWith(Criterio) ||
+                                                p.unidades.ToString().StartsWith(Criterio))
                                                 .ToList());
-                                                */
-
-            /*
-             * return View(from df in db.DetalleFactura
-                        join a  in db.Articulos.Where(p => Criterio == null || p.DESCRIPCION.StartsWith(Criterio))
-                        on df.idArticulo equals a.ID
-                        select new
-                        {
-                            df.unidades
-                        }
-                        ).ToList());
-                        */
-
-            //No resulta de esta forma
-            //string fnCalcularTotal = "SELECT dbo.calcularTotal(@producto);";
-            //ViewBag.Total = db.Database.ExecuteSqlCommand(fnCalcularTotal, new SqlParameter("@producto", Criterio));
         }
 
         // GET: DetalleFacturas/Details/5

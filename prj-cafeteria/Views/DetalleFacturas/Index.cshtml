@@ -15,7 +15,13 @@
     <div class="col-lg-12">
         <form method="get" action="../Historial_Unidades_Vendidas_por_Producto/Index">
             <input type="text" id="Criterio" name="Criterio" />
-            <input type="submit" id="cmdBuscarV" name="BuscarV" placeholder="producto" value="Filtrar" class="btn btn-primary" />
+            <input type="submit" id="cmdBuscarV" name="BuscarV" placeholder="producto" value="Filtrar Unidades por Producto" class="btn btn-success" />
+        </form>
+    </div>
+    <div class="col-lg-12">
+        <form method="get">
+            <input type="text" id="Criterio" name="Criterio" />
+            <input type="submit" id="cmdBuscarV" name="BuscarV" placeholder="producto" value="Filtrar por Criterio" class="btn btn-primary" />
         </form>
     </div>
 </div>
@@ -59,12 +65,7 @@
             </td>
         </tr>
     }
-    <tfoot>
-        <tr>
-            <td>
-                @Html.ActionLink("Ver Historial de Unidades Vendidas por Producto", "Index", "Historial_Unidades_Vendidas_por_Producto")
-            </td>
-        </tr>
-    </tfoot>
-
+    
+    @Html.ActionLink("Ver Historial de Unidades Vendidas por Producto", "Index", "Historial_Unidades_Vendidas_por_Producto")
+    
 </table>

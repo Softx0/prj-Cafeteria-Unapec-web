@@ -11,7 +11,8 @@ namespace prj_cafeteria.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class EMPLEADO
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -23,11 +24,27 @@ namespace prj_cafeteria.Models
         }
     
         public int ID { get; set; }
+
+        [Display(Name = "Tanda Labor"), Required(ErrorMessage = "El nombre del ítem es obligatorio")]
         public Nullable<int> IDTANDALABOR { get; set; }
+
+        [RegularExpression(@"^[a-zA-Z ]+$", ErrorMessage = "Solo letras permitidas!")]
+        [Display(Name = "Nombre"), Required(ErrorMessage = "El nombre del ítem es obligatorio")]
         public string NOMBRE { get; set; }
+
+        [StringLength(11, ErrorMessage = "La longitud es incorrecta", MinimumLength = 11)]
+        [Display(Name = "Cedula"), Required(ErrorMessage = "El nombre del ítem es obligatorio")]
         public string CEDULA { get; set; }
+
+        [Display(Name = "Comision"), Required(ErrorMessage = "El nombre del ítem es obligatorio")]
         public decimal COMISION { get; set; }
+
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
+        [Display(Name = "Fecha de Registro"), Required(ErrorMessage = "El nombre del ítem es obligatorio")]
         public Nullable<System.DateTime> FECHAREGISTRO { get; set; }
+
+        [Display(Name = "Estado"), Required(ErrorMessage = "El nombre del ítem es obligatorio")]
         public Nullable<int> Estado { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -900,10 +900,6 @@
     <Content Include="Views\AspNetRoles\Edit.cshtml" />
     <Content Include="Views\AspNetRoles\Index.cshtml" />
     <Content Include="Views\Shared\_PartialOutAdmin.cshtml" />
-    <Content Include="Views\Historial_Unidades_Vendidas_por_Producto\Create.cshtml" />
-    <Content Include="Views\Historial_Unidades_Vendidas_por_Producto\Delete.cshtml" />
-    <Content Include="Views\Historial_Unidades_Vendidas_por_Producto\Details.cshtml" />
-    <Content Include="Views\Historial_Unidades_Vendidas_por_Producto\Edit.cshtml" />
     <Content Include="Views\Historial_Unidades_Vendidas_por_Producto\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>

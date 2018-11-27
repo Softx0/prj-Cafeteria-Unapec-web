@@ -17,10 +17,14 @@ namespace prj_cafeteria.Controllers
         private Validaciones validaciones = new Validaciones();
 
         // GET: Proveedor
-        public ActionResult Index()
+        public ActionResult Index(string Criterio = null)
         {
             var pROVEEDOR = db.PROVEEDOR.Include(p => p.ESTADO1);
-            return View(pROVEEDOR.ToList());
+            return View(db.PROVEEDOR.Where(p => Criterio == null ||
+                                                p.NOMBRE.StartsWith(Criterio) ||
+                                                p.RNC.StartsWith(Criterio) ||
+                                                p.ESTADO1.Estado1.StartsWith(Criterio))
+                                                .ToList());
         }
 
         // GET: Proveedor/Details/5
@@ -54,16 +58,11 @@ namespace prj_cafeteria.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (validaciones.IsValiRNC(pROVEEDOR.RNC))
-                {
-                    db.PROVEEDOR.Add(pROVEEDOR);
-                    db.SaveChanges();
-                    return RedirectToAction("Index");
-                }
-                else
-                {
-                    ModelState.AddModelError("RNC", "El RNC es incorrecto.");
-                }
+
+                db.PROVEEDOR.Add(pROVEEDOR);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+
             }
 
 

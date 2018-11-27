@@ -127,7 +127,6 @@ C:\Users\DELL\Desktop\UNIVERSIDAD\Cafeteria Unapec Web CSharp\prj-cafeteria\prj-
 C:\Users\DELL\Desktop\UNIVERSIDAD\Cafeteria Unapec Web CSharp\prj-cafeteria\prj-cafeteria\bin\es\Microsoft.AspNet.Identity.Core.resources.dll
 C:\Users\DELL\Desktop\UNIVERSIDAD\Cafeteria Unapec Web CSharp\prj-cafeteria\prj-cafeteria\bin\es\Microsoft.AspNet.Identity.Owin.resources.dll
 C:\Users\DELL\Desktop\UNIVERSIDAD\Cafeteria Unapec Web CSharp\prj-cafeteria\prj-cafeteria\bin\es\Microsoft.AspNet.Identity.EntityFramework.resources.dll
-C:\Users\DELL\Desktop\UNIVERSIDAD\Cafeteria Unapec Web CSharp\prj-cafeteria\prj-cafeteria\obj\Debug\prj-cafeteria.csprojAssemblyReference.cache
 C:\Users\DELL\Desktop\UNIVERSIDAD\Cafeteria Unapec Web CSharp\prj-cafeteria\prj-cafeteria\obj\Debug\prj-cafeteria.csproj.CoreCompileInputs.cache
 C:\Users\DELL\Desktop\UNIVERSIDAD\Cafeteria Unapec Web CSharp\prj-cafeteria\prj-cafeteria\obj\Debug\prj-cafeteria.csproj.CopyComplete
 C:\Users\DELL\Desktop\UNIVERSIDAD\Cafeteria Unapec Web CSharp\prj-cafeteria\prj-cafeteria\obj\Debug\prj-cafeteria.dll
@@ -140,3 +139,4 @@ C:\Users\DELL\Desktop\UNIVERSIDAD\Cafeteria Unapec Web CSharp\prj-cafeteria\prj-
 C:\Users\DELL\Desktop\UNIVERSIDAD\Cafeteria Unapec Web CSharp\prj-cafeteria\prj-cafeteria\bin\System.Security.Cryptography.X509Certificates.dll
 C:\Users\DELL\Desktop\UNIVERSIDAD\Cafeteria Unapec Web CSharp\prj-cafeteria\prj-cafeteria\bin\SendGrid.pdb
 C:\Users\DELL\Desktop\UNIVERSIDAD\Cafeteria Unapec Web CSharp\prj-cafeteria\prj-cafeteria\bin\SendGrid.xml
+C:\Users\DELL\Desktop\UNIVERSIDAD\Cafeteria Unapec Web CSharp\prj-cafeteria\prj-cafeteria\obj\Debug\prj-cafeteria.csprojAssemblyReference.cache
