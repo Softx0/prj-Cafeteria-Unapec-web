@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -17,15 +18,33 @@ namespace prj_cafeteria.Controllers
         // GET: DetalleFacturas
         public ActionResult Index(string Criterio = null)
         {
+
             var detalleFactura = db.DetalleFactura.Include(d => d.Articulos).Include(d => d.Factura);
-           // return View(detalleFactura);
+            return View(detalleFactura);
+
             /*
-            ViewBag.Total = detalleFactura.Sum(m => m.unidades);*/
+             * ViewBag.Total = detalleFactura.Sum(m => m.unidades);
+
             return View(db.DetalleFactura.Where(p => Criterio == null || 
                                                 p.unidades.ToString().StartsWith(Criterio) || 
                                                 p.Articulos.DESCRIPCION.StartsWith(Criterio))
                                                 .ToList());
-                                                
+                                                */
+
+            /*
+             * return View(from df in db.DetalleFactura
+                        join a  in db.Articulos.Where(p => Criterio == null || p.DESCRIPCION.StartsWith(Criterio))
+                        on df.idArticulo equals a.ID
+                        select new
+                        {
+                            df.unidades
+                        }
+                        ).ToList());
+                        */
+
+            //No resulta de esta forma
+            //string fnCalcularTotal = "SELECT dbo.calcularTotal(@producto);";
+            //ViewBag.Total = db.Database.ExecuteSqlCommand(fnCalcularTotal, new SqlParameter("@producto", Criterio));
         }
 
         // GET: DetalleFacturas/Details/5

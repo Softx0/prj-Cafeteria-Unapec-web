@@ -200,6 +200,15 @@
     <Property Name="FECHAREGISTRO" Type="date" />
     <Property Name="Estado" Type="int" />
   </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'CafeteriaUnapec.dbo.Historial Unidades Vendidas por Producto' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="Historial Unidades Vendidas por Producto">
+    <Key>
+      <PropertyRef Name="DESCRIPCION" />
+    </Key>
+    <Property Name="Total" Type="int" />
+    <Property Name="DESCRIPCION" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
   <Association Name="FK__Articulos__Estad__5CD6CB2B">
     <End Role="ESTADO" Type="Self.ESTADO" Multiplicity="0..1" />
     <End Role="Articulos" Type="Self.Articulos" Multiplicity="*" />
@@ -568,6 +577,9 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="calcularTotal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int">
+    <Parameter Name="producto" Type="varchar" Mode="In" />
+  </Function>
   <EntityContainer Name="CafeteriaUnapecModelStoreContainer">
     <EntitySet Name="Articulos" EntityType="Self.Articulos" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
@@ -589,6 +601,12 @@
     <EntitySet Name="TANDALABOR" EntityType="Self.TANDALABOR" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TIPOUSUARIO" EntityType="Self.TIPOUSUARIO" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="USUARIO" EntityType="Self.USUARIO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Historial Unidades Vendidas por Producto" EntityType="Self.Historial Unidades Vendidas por Producto" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Historial Unidades Vendidas por Producto].[Total] AS [Total], 
+    [Historial Unidades Vendidas por Producto].[DESCRIPCION] AS [DESCRIPCION]
+    FROM [dbo].[Historial Unidades Vendidas por Producto] AS [Historial Unidades Vendidas por Producto]</DefiningQuery>
+    </EntitySet>
     <AssociationSet Name="FK__Articulos__Estad__5CD6CB2B" Association="Self.FK__Articulos__Estad__5CD6CB2B">
       <End Role="ESTADO" EntitySet="ESTADO" />
       <End Role="Articulos" EntitySet="Articulos" />

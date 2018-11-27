@@ -53,6 +53,7 @@
         <EntityTypeShape EntityType="CafeteriaUnapecModel.AspNetUserLogins" Width="1.5" PointX="5.25" PointY="8.375" />
         <AssociationConnector Association="CafeteriaUnapecModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
         <AssociationConnector Association="CafeteriaUnapecModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <EntityTypeShape EntityType="CafeteriaUnapecModel.Historial_Unidades_Vendidas_por_Producto" Width="1.5" PointX="3.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

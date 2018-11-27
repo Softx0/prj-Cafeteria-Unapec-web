@@ -503,6 +503,7 @@
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
       <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
     </AssociationSet>
+    <EntitySet Name="Historial_Unidades_Vendidas_por_Producto" EntityType="CafeteriaUnapecModel.Historial_Unidades_Vendidas_por_Producto" />
   </EntityContainer>
   <EntityType Name="TANDALABOR">
     <Key>
@@ -731,4 +732,11 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="Historial_Unidades_Vendidas_por_Producto">
+    <Key>
+      <PropertyRef Name="DESCRIPCION" />
+    </Key>
+    <Property Name="Total" Type="Int32" />
+    <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
 </Schema>

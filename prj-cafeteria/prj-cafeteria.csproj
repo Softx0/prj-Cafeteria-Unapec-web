@@ -228,6 +228,7 @@
     <Compile Include="Controllers\EstadoController.cs" />
     <Compile Include="Controllers\FacturacionArticuloController.cs" />
     <Compile Include="Controllers\FacturaController.cs" />
+    <Compile Include="Controllers\Historial_Unidades_Vendidas_por_ProductoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MarcaController.cs" />
@@ -281,6 +282,9 @@
     <Compile Include="Models\FACTURACION_ARTICULOS.cs">
       <DependentUpon>ModelCafeteria.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Historial_Unidades_Vendidas_por_Producto.cs">
+      <DependentUpon>ModelCafeteria.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MARCA.cs">
@@ -315,6 +319,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="Utils\FuncionesSQL.cs" />
     <Compile Include="Utils\Validaciones.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -895,6 +900,11 @@
     <Content Include="Views\AspNetRoles\Edit.cshtml" />
     <Content Include="Views\AspNetRoles\Index.cshtml" />
     <Content Include="Views\Shared\_PartialOutAdmin.cshtml" />
+    <Content Include="Views\Historial_Unidades_Vendidas_por_Producto\Create.cshtml" />
+    <Content Include="Views\Historial_Unidades_Vendidas_por_Producto\Delete.cshtml" />
+    <Content Include="Views\Historial_Unidades_Vendidas_por_Producto\Details.cshtml" />
+    <Content Include="Views\Historial_Unidades_Vendidas_por_Producto\Edit.cshtml" />
+    <Content Include="Views\Historial_Unidades_Vendidas_por_Producto\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

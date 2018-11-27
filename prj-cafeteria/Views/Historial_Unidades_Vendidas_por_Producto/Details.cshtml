@@ -1,0 +1,27 @@
+﻿@model prj_cafeteria.Models.Historial_Unidades_Vendidas_por_Producto
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Historial_Unidades_Vendidas_por_Producto</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Total)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Total)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.DESCRIPCION }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

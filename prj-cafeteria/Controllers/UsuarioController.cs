@@ -55,7 +55,7 @@ namespace prj_cafeteria.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (validaciones.valiCedula(uSUARIO.CEDULA))
+                if (validaciones.IsValiCedula(uSUARIO.CEDULA))
                 {
                     db.USUARIO.Add(uSUARIO);
                     db.SaveChanges();

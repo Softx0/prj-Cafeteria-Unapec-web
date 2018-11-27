@@ -12,7 +12,7 @@ namespace prj_cafeteria.Utils
 
         }
 
-        public bool valiCedula(string pCedula)
+        public bool IsValiCedula(string pCedula)
         {
             int vnTotal = 0;
             string vcCedula = pCedula.Replace("-", "");
@@ -38,29 +38,43 @@ namespace prj_cafeteria.Utils
                 return false;
         }
 
-        public bool valiRNC(string pRNC)
+        public bool IsValiRNC(string pRNC)
         {
-            int vnTotal = 0;
-            int[] digitoMult = new int[8] { 7, 9, 8, 6, 5, 4, 3, 2 };
-            string vcRNC = pRNC.Replace("-", "").Replace(" ", "");
-            string vDigito = vcRNC.Substring(8, 1);
+            //para verificar si es un dígito o no
+            if (!pRNC.All(char.IsDigit))
+                return false;
 
-            if (vcRNC.Length.Equals(9))
-                if (!"145".Contains(vcRNC.Substring(0, 1)))
-                    return false;
+            char[] peso = { '7', '9', '8', '6', '5', '4', '3', '2' };
+            int suma = 0;
+            int division = 0;
 
-            for (int vDig = 1; vDig <= 8; vDig++)
+            if (pRNC.Length != 9)
+                return false;
+            else
             {
-                int vCalculo = Int32.Parse(vcRNC.Substring(vDig - 1, 1)) * digitoMult[vDig - 1];
-                vnTotal += vCalculo;
+
+                for (int i = 0; i < 8; i++)
+                {
+                    string rw = pRNC.ElementAt(i).ToString();
+                    suma = suma + Convert.ToInt32(pRNC.ElementAt(i).ToString()) * Convert.ToInt32(peso[i]);
+                }
+
+                division = suma / 11;
+                int resto = suma - (division * 11);
+                int digito = 0;
+
+                if (resto == 0)
+                    digito = 2;
+                else if (resto == 1)
+                    digito = 1;
+                else
+                    digito = 11 - resto;
+
+                if (digito != Convert.ToInt32(pRNC.ElementAt(8).ToString()))
+                    return false;
             }
 
-            if (vnTotal % 11 == 0 && vDigito == "1" || vnTotal % 11 == 1 && vDigito == "1" ||
-                (11 - (vnTotal % 11)).Equals(vDigito))
-
-                return true;
-            else
-                return false;
+            return true;
         }
     }
 }

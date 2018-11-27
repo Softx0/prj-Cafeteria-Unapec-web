@@ -218,5 +218,13 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Historial_Unidades_Vendidas_por_Producto">
+      <EntityTypeMapping TypeName="CafeteriaUnapecModel.Historial_Unidades_Vendidas_por_Producto">
+        <MappingFragment StoreEntitySet="Historial Unidades Vendidas por Producto">
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>
